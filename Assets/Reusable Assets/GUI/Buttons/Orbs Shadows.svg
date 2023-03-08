@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="47.095829mm"
+   height="47.349831mm"
+   viewBox="0 0 47.095829 47.349831"
+   version="1.1"
+   id="svg264"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="Orbs Shadows.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview266"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.8707912"
+     inkscape:cx="45.435321"
+     inkscape:cy="94.612374"
+     inkscape:window-width="1360"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs261">
+    <radialGradient
+       id="radial-gradient"
+       cx="89"
+       cy="89.480003"
+       fx="89"
+       fy="89.480003"
+       r="89.239998"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,133.72066,101.91366)">
+      <stop
+         offset="0.76999998"
+         stop-color="#000"
+         id="stop4"
+         style="stop-color:#ff8d8d;stop-opacity:1;" />
+      <stop
+         offset="1"
+         stop-color="#000"
+         stop-opacity="0"
+         id="stop6" />
+    </radialGradient>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Invert"
+       id="filter182"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feColorMatrix
+         type="hueRotate"
+         values="180"
+         result="color1"
+         id="feColorMatrix178" />
+      <feColorMatrix
+         values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 -0.21 -0.72 -0.07 1.60436 0 "
+         result="color2"
+         id="feColorMatrix180" />
+    </filter>
+    <radialGradient
+       id="radial-gradient-4"
+       cx="89"
+       cy="89.480003"
+       fx="89"
+       fy="89.480003"
+       r="89.239998"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,133.72066,101.91366)">
+      <stop
+         offset="0.50538462"
+         stop-color="#000"
+         id="stop1238"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         offset="1"
+         stop-color="#000"
+         stop-opacity="0"
+         id="stop1240"
+         style="stop-color:#ffffff;stop-opacity:0;" />
+    </radialGradient>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-133.72066,-101.91366)">
+    <path
+       class="cls-2"
+       d="m 171.91062,107.05451 v 0 c 0,0 0,0 0,0 -4.20423,-3.36285 -9.26571,-5.14085 -14.64204,-5.14085 -6.44261,0 -12.45923,2.5691 -16.93863,7.23635 -4.26244,4.43971 -6.60929,10.27907 -6.60929,16.43857 0,13.05454 10.56481,23.67491 23.54792,23.67491 12.9831,0 23.54791,-10.62037 23.54791,-23.67491 0,-7.25488 -3.24643,-14.01234 -8.90587,-18.53407 z"
+       id="path1287"
+       style="fill:url(#radial-gradient-4);stroke-width:0.264583" />
+  </g>
+</svg>
