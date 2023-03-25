@@ -8,10 +8,11 @@
       "url": "https://packages.unity.com"
     },
     "com.coffee.softmask-for-ugui": {
-      "version": "file:C:/Users/Administrator/Downloads/SoftMaskForUGUI-main",
+      "version": "https://github.com/mob-sakai/SoftMaskForUGUI.git",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "b870d64b5704a764fd03aaccb11f2dbe652b1756"
     },
     "com.unity.2d.animation": {
       "version": "7.0.9",
