@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8757916006664022989}
   - component: {fileID: 8757916006664022985}
   - component: {fileID: 8757916006664022984}
-  - component: {fileID: 8757916006664022991}
   - component: {fileID: 8757916006664022990}
+  - component: {fileID: 5699409880815975645}
   m_Layer: 5
   m_Name: How to play Button
   m_TagString: Untagged
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3286163911610860551, guid: 1c6f4d7aacddfae429984e52721d2448, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: f588a5a6b0d6ab84382511eba8a2172c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -79,19 +79,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 10
---- !u!114 &8757916006664022991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8757916006664022988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be617650d762ea04ea663e72652767f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reference: {fileID: 0}
 --- !u!114 &8757916006664022990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,8 +108,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 3286163911610860551, guid: be957b796a05b3849825dadccf1ed06e, type: 3}
-    m_PressedSprite: {fileID: 3286163911610860551, guid: 497c87228d92bed4390e6fb824546f76, type: 3}
+    m_HighlightedSprite: {fileID: 3286163911610860551, guid: 811145eb3d4121443af80f44a8de33eb, type: 3}
+    m_PressedSprite: {fileID: 3286163911610860551, guid: e237306f1aef44841a546015c7071f99, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -135,7 +122,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8757916006664022984}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5699409880815975645}
+        m_TargetAssemblyTypeName: MinigameButtonFunctions, Assembly-CSharp
+        m_MethodName: HowToPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5699409880815975645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757916006664022988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3aa67cfdda15741a2d97920e0a8fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8757916007055056098
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,8 +215,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How to play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 715f8e2e6c7b4a2499fb006326d572e4, type: 2}
-  m_sharedMaterial: {fileID: 8673233023624088266, guid: 715f8e2e6c7b4a2499fb006326d572e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: af6e16d587b5d6f4d8e3621124bf17d0, type: 2}
+  m_sharedMaterial: {fileID: 8673233023624088266, guid: af6e16d587b5d6f4d8e3621124bf17d0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

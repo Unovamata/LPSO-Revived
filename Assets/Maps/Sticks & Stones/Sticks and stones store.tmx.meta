@@ -1,0 +1,37 @@
+fileFormatVersion: 2
+guid: b17af385231fe6845a1bb59a937da0b8
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 6363d3fc1b25bca42aa8787daffc550b, type: 3}
+  missingFiles: []
+  errors:
+  - Errors detected in tileset 'tiles/walls5.tsx'. Check the tileset inspector for
+    more details. Your map may be broken until these are fixed.
+  - Errors detected in tileset 'tiles/objects/potted_bush.tsx'. Check the tileset
+    inspector for more details. Your map may be broken until these are fixed.
+  - Missing tile '46' on tile object ''
+  - Missing tile '63' on tile object ''
+  - Missing tile '63' on tile object ''
+  - Missing tile '63' on tile object ''
+  - Missing tile '63' on tile object ''
+  - Missing tile '63' on tile object ''
+  - Missing tile '63' on tile object ''
+  - Missing tile '63' on tile object ''
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  missingTags: []
+  importerVersion: 26
+  pixelsPerUnit: 100
+  edgesPerEllipse: 32
+  numberOfObjectsImported: 2
+  tilesAsObjects: 0
+  sortingMode: 0
+  isIsometric: 1
+  customImporterClassName: 
+  internalTilesets: []

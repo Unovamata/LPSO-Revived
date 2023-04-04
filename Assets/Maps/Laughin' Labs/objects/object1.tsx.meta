@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: e9abd905beddd524b91d3f072f6492b1
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 2a6955efd9e87da448c162c8e145832c, type: 3}
+  missingFiles: []
+  errors:
+  - Texture was imported at a smaller size. Make sure 'Max Size' on 'object1.png'
+    is at least '2732'
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  missingTags: []
+  importerVersion: 13
+  pixelsPerUnit: 100
+  edgesPerEllipse: 32
+  numberOfObjectsImported: 2
+  useSpriteAtlas: 1
+  atlasWidth: 2048
+  atlasHeight: 2048

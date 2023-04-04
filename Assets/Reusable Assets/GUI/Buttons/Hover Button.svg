@@ -1,24 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 26.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 18.9" style="enable-background:new 0 0 20 18.9;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill-rule:evenodd;clip-rule:evenodd;fill-opacity:0.302;}
-	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#8FC6FF;}
-	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_1_);}
-	.st3{fill-rule:evenodd;clip-rule:evenodd;fill:#1B52BE;}
-</style>
-<path class="st0" d="M20,6v6.9c0,4-2,6-6,6H6c-4,0-6-2-6-6V6c0-4,2-6,6-6h7.9C18,0,20,2,20,6 M19,6c0-3.3-1.7-5-5-5H6
-	C2.7,1,1,2.7,1,6v6.9c0,3.3,1.7,5,5,5h7.9c3.3,0,5-1.7,5-5V6"/>
-<path class="st1" d="M5.1,1.7C4,1.9,3.4,2.3,3,3.1c-0.3,0.5-0.5,1.2-0.5,2v7.5c0.3,2,1.4,2.9,3.5,2.9h7.9c2.1,0,3.2-1,3.5-2.9V5.1
-	c0-0.8-0.1-1.5-0.4-2c-0.4-0.8-1.2-1.2-2.1-1.4C16.9,2,18,3.3,18,5.6v7.1c-0.1,2.5-1.4,3.8-4,3.8H6c-2.6,0-3.9-1.3-4-3.8V5.6
-	C2,3.3,3,2,5.1,1.7"/>
-<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="41774.6914" y1="21654.3105" x2="43413.0898" y2="21654.3105" gradientTransform="matrix(0 9.000000e-03 1.480000e-02 0 -310.5088 -374.945)">
-	<stop  offset="0" style="stop-color:#00ACFF"/>
-	<stop  offset="1" style="stop-color:#1172E6"/>
-</linearGradient>
-<path class="st2" d="M14.9,1.7c1,0.2,1.7,0.6,2.1,1.4c0.3,0.5,0.4,1.2,0.4,2v7.5c-0.3,2-1.4,2.9-3.5,2.9H6c-2.1,0-3.2-1-3.5-2.9V5.1
-	c0-0.8,0.1-1.5,0.5-2C3.4,2.3,4,1.9,5.1,1.7H14.9"/>
-<path class="st3" d="M5.1,1.7C3,2,2,3.3,2,5.6v7.1c0.1,2.5,1.4,3.8,4,3.8h7.9c2.6,0,3.9-1.3,4-3.8V5.6c0-2.3-1-3.6-3.1-3.9H5.1
-	 M19,6v6.9c0,3.3-1.7,5-5,5H6c-3.3,0-5-1.7-5-5V6c0-3.3,1.7-5,5-5h7.9C17.3,1,19,2.7,19,6"/>
-</svg>
+version https://git-lfs.github.com/spec/v1
+oid sha256:025a64338330054a7e7b17edf140bc5899befe4d68864034bb54e9e52be73cbf
+size 1793
