@@ -47,28 +47,6 @@ public class CrAPTextureManagement : MonoBehaviour{
 
         AssetDatabase.CreateAsset(mesh, "Mesh");
         AssetDatabase.SaveAssets();
-
-        //Calling the visual parameters and data;
-        /*mesh = GetComponent<MeshRenderer>();
-        material = mesh.material;
-        LoadSkeletonData("SkeletonData");
-
-        //Texture editing;
-        temporalTexture = CloneTexture(skeletonData);
-
-        limb = CallLimb(limbName);
-        limbTexture = limb.limbTexture;
-        Vector4 coordinates = limb.coordinates;
-        x = (int)coordinates.x;
-        y = (int)coordinates.y;
-        w = (int)coordinates.z;
-        h = (int)coordinates.w;
-
-        ClearTextureAt(x, y, w, h);
-
-        //Pasting the texture;
-        PasteTexture(limb, temporalTexture);
-        temporalTexture.Apply();*/
     }
 
     // Update is called once per frame
@@ -151,8 +129,7 @@ public class CustomInspector : Editor {
 
         EditorGUILayout.LabelField("Texture Management");
 
-        foreach(Limb limb in CrAPTextureManagement.Instance.skeleton.limbs) {
-
+        foreach(Limb limb in manager.skeleton.limbs) {
             string name = limb.partName;
             Vector4 coordinates = limb.coordinates;
             int x = (int)coordinates.x;

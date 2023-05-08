@@ -107,8 +107,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 49b3079d01f02be478da79ba80cc7775, type: 2}
-  m_sharedMaterial: {fileID: -531487501981997231, guid: 49b3079d01f02be478da79ba80cc7775, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4f4a2f693eb1d841b436a9e66d41bf1, type: 2}
+  m_sharedMaterial: {fileID: -531487501981997231, guid: a4f4a2f693eb1d841b436a9e66d41bf1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -243,8 +243,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9797af10649517940a6de9a02702cb11, type: 2}
-  m_sharedMaterial: {fileID: 8198870393589357455, guid: 9797af10649517940a6de9a02702cb11, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75760681ee2a6554881da1be292d052f, type: 2}
+  m_sharedMaterial: {fileID: 8198870393589357455, guid: 75760681ee2a6554881da1be292d052f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -319,10 +319,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2931751896813993304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c37626773edff4e82c4eeb80aea782, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dd6f1096eab1c94cb23617b687021ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 1981236749416314600}
+  whiteText: {fileID: 1981236749416314600}
+  opacity: 1
 --- !u!1 &5789070452153579020
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,8 +393,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aef72ab2c4cbf17459a36e6e371b0db8, type: 2}
-  m_sharedMaterial: {fileID: 7226739320668735792, guid: aef72ab2c4cbf17459a36e6e371b0db8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a95e28528f4ec774db64567c0af05b77, type: 2}
+  m_sharedMaterial: {fileID: 7226739320668735792, guid: a95e28528f4ec774db64567c0af05b77, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -468,10 +469,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5789070452153579020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c37626773edff4e82c4eeb80aea782, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dd6f1096eab1c94cb23617b687021ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 1981236749416314600}
+  whiteText: {fileID: 1981236749416314600}
+  opacity: 1
 --- !u!1 &6501332622141684419
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7594112866682541817}
   - component: {fileID: 212394990882376995}
-  - component: {fileID: -4418856944072696412}
+  - component: {fileID: 7775935336227367809}
   m_Layer: 0
   m_Name: Bronze Ticket
   m_TagString: Untagged
@@ -547,7 +549,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 3286163911610860551, guid: 252fa5229536df4469def475b4045f1e, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: 2285ca6e4b75d3948a250a26112fcf99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -558,7 +560,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-4418856944072696412
+--- !u!114 &7775935336227367809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -567,10 +569,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6501332622141684419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c66720d3dc3924845b1174c10c7b8889, type: 3}
+  m_Script: {fileID: 11500000, guid: b0d269ae3a964dc4796a05c1a94460e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.1
+  amplitude: 1
   speed: 1
 --- !u!1 &8803438696390598144
 GameObject:
