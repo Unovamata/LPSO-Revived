@@ -484,9 +484,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7594112866682541817}
   - component: {fileID: 212394990882376995}
-  - component: {fileID: 7775935336227367809}
+  - component: {fileID: 139051822189166592}
   m_Layer: 0
-  m_Name: Bronze Ticket
+  m_Name: P_SilverTicket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -549,7 +549,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 3286163911610860551, guid: 2285ca6e4b75d3948a250a26112fcf99, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: ccd96a62d7d64e2448a7d51355c33ab4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -560,7 +560,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7775935336227367809
+--- !u!114 &139051822189166592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

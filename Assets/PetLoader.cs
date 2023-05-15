@@ -60,7 +60,7 @@ public class PetLoader : MonoBehaviour{
         PetLoader instance = PetLoader.Instance;
         Transform selected = instance.selectedPet.transform;
         selected.gameObject.SetActive(false);
-        selected.localScale = Vector3.one * 1.1f;
+        //selected.localScale = Vector3.one * 1.1f;
 
         //Creating the pet;
         GameObject newPet = Instantiate(pet, instance.position, Quaternion.identity, selected.parent);

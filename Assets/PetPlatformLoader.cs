@@ -36,6 +36,7 @@ public class PetPlatformLoader : PetLoader{
         //Calling the platform's positions;
         for(int i = petPointer; i < slots.Length; i++) {
             Transform platform = slots[i];
+            print(slots.Length);
             Vector3 pos = platform.position;
 
             //ownedPets.Add(new Pet { petId = UnityEngine.Random.Range(0, 2), name = (i - petPointer).ToString() });
@@ -149,7 +150,7 @@ public class PetPlatformLoader : PetLoader{
             petExtracted = ownedPets[i];
         } catch {
             //If the pet does not exists, then destroy current pets in the platforms;
-            platformData = platform.GetComponentInChildren<SwitchSpritePetPlatform>();
+            platformData = platform.GetComponent<SwitchSpritePetPlatform>();
             try { Destroy(platformData.pet); } catch { }
             DeactivateHourglass(platform);
 
@@ -159,7 +160,7 @@ public class PetPlatformLoader : PetLoader{
 
         //Creating the pet;
         Vector3 pos = platform.position;
-        GameObject petInstance = Instantiate(pet, new Vector3(pos.x - 0.05f, pos.y + 0.66f, -1), Quaternion.identity, platform);
+        GameObject petInstance = Instantiate(pet, new Vector3(pos.x - 0.19f, pos.y + 0.55f, -1), Quaternion.identity, platform);
         DeactivateHourglass(platform);
 
         //Editor Parameters;
