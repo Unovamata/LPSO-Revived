@@ -250,8 +250,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 3286163911610860551, guid: a7ba18bc86850ab4aba3fd1009e4c928, type: 3}
-    m_PressedSprite: {fileID: 3286163911610860551, guid: a7ba18bc86850ab4aba3fd1009e4c928, type: 3}
+    m_HighlightedSprite: {fileID: 3286163911610860551, guid: c858130e396c1bf4f854cd741d0cc27e, type: 3}
+    m_PressedSprite: {fileID: 3286163911610860551, guid: afce9eca7689a3e4ea32d9ada2323814, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -265,8 +265,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TabButtonFunctions, Assembly-CSharp
+      - m_Target: {fileID: 8394531740861973871}
+        m_TargetAssemblyTypeName: TabButtonFunctions, LPSO.Select-A-Pet
         m_MethodName: LoadPetPlatforms
         m_Mode: 1
         m_Arguments:
