@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2ce0b4d5900a7a849a4782e1be833724
+guid: 2f90307f7a0255445932cc2fab4ddfad
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -39,16 +39,16 @@ ScriptedImporter:
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: 
+      name: S_Container Box
       originalName: 
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       alignment: 0
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 50, y: 70, z: 50, w: 70}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 0
-        height: 0
-      spriteID: 90d5f20b77a522c4a852aa10e5095ad4
+        width: 243
+        height: 256
+      spriteID: 56cbe35aba65e77488f8680be7c902cc
     PhysicsOutlines: []
