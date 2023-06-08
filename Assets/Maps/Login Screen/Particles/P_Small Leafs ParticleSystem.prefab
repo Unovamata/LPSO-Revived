@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6386891140852807915}
   - component: {fileID: 6386891140852807912}
   m_Layer: 0
-  m_Name: Small Leafs
+  m_Name: P_Small Leafs ParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4761,7 +4761,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45c472af6b4dd5e4eb5cacc64538da64, type: 2}
+  - {fileID: 2100000, guid: 1b3f593d81075824cb2e173a056a507f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
