@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Leave
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 715f8e2e6c7b4a2499fb006326d572e4, type: 2}
-  m_sharedMaterial: {fileID: 8673233023624088266, guid: 715f8e2e6c7b4a2499fb006326d572e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5d410c601263f844b112b8c6a3de409, type: 2}
+  m_sharedMaterial: {fileID: 8673233023624088266, guid: c5d410c601263f844b112b8c6a3de409, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 3120978856244185037}
   - component: {fileID: 3120978856244185036}
   - component: {fileID: 3120978856244185027}
-  - component: {fileID: 3120978856244185026}
+  - component: {fileID: 8483382128877079064}
   m_Layer: 5
   m_Name: Leave Button
   m_TagString: Untagged
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3286163911610860551, guid: d6a4c4e16779eab48b4c0082b357bc6f, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: 7bc3c309cae9019449d2c764ae2d5483, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -258,10 +258,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3120978856244185026}
+      - m_Target: {fileID: 8483382128877079064}
         m_TargetAssemblyTypeName: MinigameButtonFunctions, Assembly-CSharp
         m_MethodName: QuitGame
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -270,7 +270,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3120978856244185026
+--- !u!114 &8483382128877079064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,7 +279,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3120978856244185024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be617650d762ea04ea663e72652767f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f3aa67cfdda15741a2d97920e0a8fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reference: {fileID: 0}

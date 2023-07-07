@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dcdb40f197309049b1ee4af16fac5d7, type: 3}
-  m_Name: FruitistaFetchSO
+  m_Script: {fileID: 11500000, guid: 9eac1cdebc3387f4ea95015a55fce980, type: 3}
+  m_Name: SO_Fruitista Fetch
   m_EditorClassIdentifier: 
   volume: 0.5
   volumeSave: 0.5

@@ -39,16 +39,16 @@ ScriptedImporter:
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: Leave ButtonSprite
+      name: Leave Button
       originalName: 
-      pivot: {x: 0.5, y: 0.49736843}
+      pivot: {x: 0.5, y: 0.5}
       alignment: 0
-      border: {x: 6, y: 7, z: 6, w: 6}
+      border: {x: 69, y: 83, z: 71, w: 76}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 20
-        height: 19
+        width: 256
+        height: 242
       spriteID: 8ca3e7289b8c46540ab9a1b721b69d41
     PhysicsOutlines: []
