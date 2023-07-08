@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[AddComponentMenu("Minigames/GUI/Minigame Timer")]
 public class MinigameTimeGUI : MonoBehaviour{
 
     //Instance Management;
@@ -31,7 +32,7 @@ public class MinigameTimeGUI : MonoBehaviour{
         MinigameReference = MinigameType.Instance;
     }
 
-    //
+    //Time text gets formatted to a specific notation to be shown in the GUI;
     private void TimerTextFormatTime() {
         timeAvailable = Mathf.Clamp(timeAvailable, 0, 999);
 
@@ -43,8 +44,6 @@ public class MinigameTimeGUI : MonoBehaviour{
 
     ////////////////////////////////////////////////////////////////////////////////////////
 
-
-    
 
     void Update(){
         bool isMinigamePlayable = MinigameReference.GetIsMinigameReady() || !MinigameReference.GetHasMinigameEnded();
@@ -59,5 +58,15 @@ public class MinigameTimeGUI : MonoBehaviour{
         if(timeAvailable > 0) timeAvailable -= Time.deltaTime;
 
         TimerTextFormatTime();
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+
+    public void TimerReset(){
+        timeAvailable = originalTimeAvailable;
+        isTimeUp = false;
+        MinigameReference.SetHasMinigameEnded(false);
     }
 }
