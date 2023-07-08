@@ -89,7 +89,7 @@ public class FruitistaFetchGameManager : MonoBehaviour{
 
     public void SendScores() {
         if(game.isReady) {
-            EndScreenMinigame results = game.resultsScreen;
+            /*EndScreenMinigame results = game.resultsScreen;
             int comboScore = maxCombo * 100;
             int totalScore = comboScore + currentScore;
 
@@ -99,7 +99,7 @@ public class FruitistaFetchGameManager : MonoBehaviour{
             }
 
             if(game.controller.highscore < totalScore) game.controller.highscore = totalScore;
-            scoreSent = true;
+            scoreSent = true;*/
         }
     }
 
@@ -114,7 +114,7 @@ public class FruitistaFetchGameManager : MonoBehaviour{
         this.enabled = false;
         poolSizeRange = Vector2.one;
         game.timer.timesUp = false;
-        GameManagerType.Instance.resultsScreen.scores = new List<int>();
+        //GameManagerType.Instance.resultsScreen.scores = new List<int>();
     }
 
     //-------------------------------------------------------------------------------------

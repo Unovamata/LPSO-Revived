@@ -4,8 +4,60 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class GameManagerType : MonoBehaviour{
-    [HideInInspector] public static GameManagerType Instance;
+public interface IMinigameType{
+    void Play();
+    void HowToPlay();
+    void Leave();
+    void CallTransition();
+}
+
+public interface IMinigameAudio{
+    void Mute(GameObject reference);
+    void PlaySound(AudioClip soundToPlay);
+}
+
+public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
+
+
+    //IMinigameType
+    public void Play(){ }
+
+    public void HowToPlay(){ }
+
+    public void Leave(){ }
+
+    public void CallTransition(){}
+
+    //IMinigameAudio
+
+    public void Mute(GameObject go){}
+
+    public void PlaySound(AudioClip ac){}
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+    
+
+    //Instance Management;
+    public static MinigameType Instance;
+
+    void Awake(){ Instance = this; }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+
+    //Variable Management;
+    bool isMinigameReady, isPlayingMinigame, hasMinigameEnded, hasTransitionEnded;
+
+    public bool GetIsMinigameReady(){ return isMinigameReady; }
+    public void SetIsMinigameReady(bool IsMinigameReady){ isMinigameReady = IsMinigameReady; }
+    public bool GetHasMinigameEnded(){ return hasMinigameEnded; }
+    public void SetHasMinigameEnded(bool HasMinigameEnded){ hasMinigameEnded = HasMinigameEnded; }
+    public bool GetHasTransitionEnded(){ return hasTransitionEnded; }
+    public void SetHasTransitionEnded(bool HasTransitionEnded){ hasTransitionEnded = HasTransitionEnded; }
+
+    /*[HideInInspector] public static GameManagerType Instance;
 
     private void Awake() {
         Instance = this;
@@ -16,7 +68,7 @@ public class GameManagerType : MonoBehaviour{
 
     //References;
     public GameObject generalGreenText, generalPinkText, GUI, startScreen, highscore, transition;
-    public EndScreenMinigame resultsScreen;
+    public LeaderboardMinigame resultsScreen;
     public MinigameTimeGUI timer;
     public MinigameBarFiller bar;
     public Transform canvas;
@@ -63,7 +115,7 @@ public class GameManagerType : MonoBehaviour{
         //if(Input.GetKey(KeyCode.Space)) SceneManager.LoadScene(SceneManager.GetActiveScene().name); //DEBUG;
 
         if (gameStart) {
-            resultsScreen.transform.position = Vector2.one * 6;
+            //resultsScreen.transform.position = Vector2.one * 6;
         }
 
         if (transitionEnd) {
@@ -72,7 +124,7 @@ public class GameManagerType : MonoBehaviour{
             highscore.SetActive(false);
             startScreen.SetActive(false);
             if(gameStart && gameEnd){
-                EndScreenMinigame.ProcessScores();
+                //EndScreenMinigame.ProcessScores();
                 GameManagerType.Instance.canLoadResultsScreen = true;
             }
             playPressed = false;
@@ -81,15 +133,15 @@ public class GameManagerType : MonoBehaviour{
 
         if(gameEnd){
             if(canLoadResultsScreen) {
-                resultsScreen.transform.position = originalResultsPosition;
+                //resultsScreen.transform.position = originalResultsPosition;
                 highscore.gameObject.SetActive(true);
             }
             
-            /*if(canLoadResultsScreen && !resultsScreen.gameObject.activeSelf){
+            if(canLoadResultsScreen && !resultsScreen.gameObject.activeSelf){
                 resultsScreen.transform.position = originalResultsPosition;
                 //resultsScreen.gameObject.SetActive(true);
                 highscore.gameObject.SetActive(true);
-            }*/
+            }
             if(GUI.activeSelf) GUI.SetActive(false);
         }
     }
@@ -133,5 +185,5 @@ public class GameManagerType : MonoBehaviour{
 
     public static MonoBehaviour[] GetAllComponents(GameObject container) {
         return container.GetComponents<MonoBehaviour>();
-    }
+    }*/
 }

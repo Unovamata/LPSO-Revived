@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class EndScreenMinigame : MonoBehaviour{
-    public List<int> scores = new List<int>();
+public class LeaderboardMinigame : MonoBehaviour{
+    // All the text meshes that are a darker blue go in this list;
+    public List<TextMeshProUGUI> scoresTextMeshes = new List<TextMeshProUGUI>();
+    public TextMeshProUGUI totalScoreTextMesh, youEarnedTextMesh, totalTextMesh;
+    int kibbleInHand, kibbleObtained, minigameTotalScore, kibbleDivisor;
+
+    /*public List<int> scores = new List<int>();
     public List<TextMeshProUGUI> scoresTextMeshes = new List<TextMeshProUGUI>();
     public TextMeshProUGUI totalScoreTextMesh, kibbleObtainedTextMesh, totalKibbleTextMesh, highscoreTextMesh;
     public int kibbleInHand, totalScore, kibbleObtained;
@@ -38,5 +43,5 @@ public class EndScreenMinigame : MonoBehaviour{
         leaderboard.kibbleObtainedTextMesh.text = GameManagerType.FormatDecimals(leaderboard.kibbleObtained);
         leaderboard.totalKibbleTextMesh.text = GameManagerType.FormatDecimals(leaderboard.kibbleInHand);
         leaderboard.highscoreTextMesh.text = GameManagerType.FormatDecimals(controller.highscore);
-    }
+    }*/
 }

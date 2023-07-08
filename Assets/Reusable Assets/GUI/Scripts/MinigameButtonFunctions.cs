@@ -27,7 +27,7 @@ public class MinigameButtonFunctions : MonoBehaviour{
     public void QuitGame(int scoresAmount) {
         GameManagerType game = GameManagerType.Instance;
         
-        if(!game.abruptEnd && game.resultsScreen.scores.Count <= scoresAmount) {
+        /*if(!game.abruptEnd && game.resultsScreen.scores.Count <= scoresAmount) {
             if(game.isReady) {
                 print("Triggered!");
                 Instantiate(game.transition, game.canvas);
@@ -35,7 +35,7 @@ public class MinigameButtonFunctions : MonoBehaviour{
                 game.transitionEnd = false;
                 EndScreenMinigame.ProcessScores();
             }
-        }
+        }*/
     }
 
     public void HowToPlay() {
@@ -68,12 +68,13 @@ public class MinigameButtonFunctions : MonoBehaviour{
     
     public void StartMinigame() {
         GameManagerType game = GameManagerType.Instance;
-
-        if (!game.playPressed) {
+        MinigameSO so = new MinigameSO();
+        
+        /*if (!game.playPressed) {
             game.resultsScreen.scores = new List<int>();
             Instantiate(game.transition, game.canvas);
             game.playPressed = true;
-        }
+        }*/
     }
 
     public void PlaySound(AudioClip soundToPlay) {
