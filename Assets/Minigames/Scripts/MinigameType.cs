@@ -8,12 +8,13 @@ public interface IMinigameType{
     void Play();
     void HowToPlay();
     void Leave();
+    void StopPlayingGame();
     void CallTransition();
 }
 
 public interface IMinigameAudio{
-    void Mute(GameObject reference);
-    void PlaySound(AudioClip soundToPlay);
+    void Mute();
+    void PlaySound();
 }
 
 public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
@@ -25,14 +26,15 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
     public void HowToPlay(){ }
 
     public void Leave(){ }
+    public void StopPlayingGame(){ }
 
     public void CallTransition(){}
 
     //IMinigameAudio
 
-    public void Mute(GameObject go){}
+    public void Mute(){}
 
-    public void PlaySound(AudioClip ac){}
+    public void PlaySound(){}
 
 
     ////////////////////////////////////////////////////////////////////////////////////////
@@ -48,7 +50,7 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
 
 
     //Variable Management;
-    bool isMinigameReady, isPlayingMinigame, hasMinigameEnded, hasTransitionEnded;
+    bool isMinigameReady, isPlayingMinigame, hasMinigameEnded, hasTransitionEnded, canLoadResultsScreen;
 
     public bool GetIsMinigameReady(){ return isMinigameReady; }
     public void SetIsMinigameReady(bool IsMinigameReady){ isMinigameReady = IsMinigameReady; }
@@ -56,6 +58,17 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
     public void SetHasMinigameEnded(bool HasMinigameEnded){ hasMinigameEnded = HasMinigameEnded; }
     public bool GetHasTransitionEnded(){ return hasTransitionEnded; }
     public void SetHasTransitionEnded(bool HasTransitionEnded){ hasTransitionEnded = HasTransitionEnded; }
+    public bool GetCanLoadResultsScreen(){ return canLoadResultsScreen; }
+    public void SetCanLoadResultsScreen(bool CanLoadResultsScreen){ canLoadResultsScreen = CanLoadResultsScreen; }
+
+
+    [SerializeField] AudioSource soundtrack, sfx;
+
+    public void PlaySFX(AudioClip sound){ sfx.PlayOneShot(sound); }
+
+    [SerializeField] MinigameSO controller;
+
+    public MinigameSO GetMinigameSOController(){ return controller; }
 
     /*[HideInInspector] public static GameManagerType Instance;
 
@@ -72,7 +85,7 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
     public MinigameTimeGUI timer;
     public MinigameBarFiller bar;
     public Transform canvas;
-    public MinigameSO controller;
+    
 
 
     //-------------------------------------------------------------------------------------

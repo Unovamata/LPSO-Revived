@@ -8,7 +8,7 @@ public class StartScreenMinigame : MonoBehaviour{
 
     // Start is called before the first frame update
     void Start(){
-        MinigameSO controller = GameManagerType.Instance.controller;
-        highscoreTextMesh.text = GameManagerType.FormatDecimals(controller.highscore);
+        //MinigameSO controller = GameManagerType.Instance.controller;
+        //highscoreTextMesh.text = GameManagerType.FormatDecimals(controller.highscore);
     }
 }

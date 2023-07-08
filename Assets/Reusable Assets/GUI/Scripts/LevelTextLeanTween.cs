@@ -10,14 +10,14 @@ public class LevelTextLeanTween : MonoBehaviour{
     public int levelNumber = 1;
     private float timer;
     [SerializeField] bool pauseTime = false;
-    GameManagerType game;
+    MinigameType game;
 
     void Start(){
         //Calling the data needed;
         levelNumber = FruitistaFetchGameManager.Instance.currentLevel;
-        game = GameManagerType.Instance;
+        game = MinigameType.Instance;
 
-        try { if(pauseTime) game.timer.canCount = false; } catch { } //Pausing time if found;
+        try { if(pauseTime) MinigameTimerGUI.Instance.SetIsPaused(true); } catch { } //Pausing time if found;
     }
 
     //Visual Scale;
@@ -32,17 +32,16 @@ public class LevelTextLeanTween : MonoBehaviour{
             TextMeshProUGUI text = levelObject.GetComponent<LPSOText>().whiteText.GetComponent<TextMeshProUGUI>();
             text.text = string.Format("Level {0}", Mathf.Clamp(levelNumber, 1, 999));
             TextAnimations.JumpAndFade(levelObject, textScale, TextAnimations.SCALED);
-            GameManagerType.ActivateScripts(GameManagerType.GetAllComponents(game.gameObject)); //And activate needed scripts;
+            //GameManagerType.ActivateScripts(GameManagerType.GetAllComponents(game.gameObject)); //And activate needed scripts;
             start = true;
         } else { //If that's already done, prepare for destruction;
             timer += Time.deltaTime;
 
             //Manipulate the game at a certain point;
             if(timer > 2 && manipulateGame) { 
-                try { if(pauseTime) game.timer.canCount = true; } catch { } //Resume time if found;
+                try { if(pauseTime) MinigameTimerGUI.Instance.SetIsPaused(false); } catch { } //Resume time if found;
                 try {  //Reset the item counting bars if found;
-                    game.bar.reset = true;
-                    game.bar.currentItems = 0;
+                    MinigameFillBarGUI.Instance.ResetData();
                 } catch { }
                 manipulateGame = false;
             }

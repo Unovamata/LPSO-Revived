@@ -22,7 +22,7 @@ public class AppleTransition : MonoBehaviour{
         cooldown = originalCooldown;
         //GameManagerType.Instance.sfx2.PlayOneShot(transitionSound);
         //If the game has already started, then it is the end game transition;
-        if(GameManagerType.Instance.gameStart) isGameEndTransition = true;
+        //if(GameManagerType.Instance.gameStart) isGameEndTransition = true;
     }
 
     // Update is called once per frame
@@ -39,19 +39,19 @@ public class AppleTransition : MonoBehaviour{
             } else {
                 if(cooldown > 0) cooldown--;
                 else {
-                    GameManagerType game = GameManagerType.Instance;
+                    MinigameType game = MinigameType.Instance;
 
                     //Ending the game and transition;
-                    game.transitionEnd = true;
+                    game.SetHasTransitionEnded(true);
                     if(isGameEndTransition){
                         FruitistaFetchGameManager.Instance.SendScores();
-                        game.gameEnd = true;
+                        game.SetHasMinigameEnded(true);
                     } else {
-                        GameManagerType.Instance.gameStart = true;
-                        Instantiate(countdown, game.canvas);
+                        MinigameType.Instance.SetIsMinigameReady(true);
+                        //Instantiate(countdown, game.canvas);
                     }
                     
-                    game.playPressed = false;
+                    //game.playPressed = false;
                     Destroy(gameObject);
                 }
             }

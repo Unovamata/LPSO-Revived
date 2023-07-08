@@ -4,10 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MinigameButtonFunctions : MonoBehaviour{
-    //public GameObject reference;
+
+    public void PlayOrPlayAgain(){ MinigameType.Instance.Play(); }
+    public void HowToPlay(){ MinigameType.Instance.HowToPlay(); }
+    public void Leave(){ MinigameType.Instance.Leave(); }
+    public void StopPlayingGame(){ MinigameType.Instance.StopPlayingGame(); }
+    public void Mute(){ MinigameType.Instance.Mute(); }
+    public void PlaySound(){ MinigameType.Instance.PlaySound(); }
 
     //PlayAgain(); Resetting the game;
-    public void PlayAgain() {
+    /*public void PlayAgain() {
         GameManagerType game = GameManagerType.Instance;
 
         if (!game.playPressed) {
@@ -27,7 +33,7 @@ public class MinigameButtonFunctions : MonoBehaviour{
     public void QuitGame(int scoresAmount) {
         GameManagerType game = GameManagerType.Instance;
         
-        /*if(!game.abruptEnd && game.resultsScreen.scores.Count <= scoresAmount) {
+        if(!game.abruptEnd && game.resultsScreen.scores.Count <= scoresAmount) {
             if(game.isReady) {
                 print("Triggered!");
                 Instantiate(game.transition, game.canvas);
@@ -35,7 +41,7 @@ public class MinigameButtonFunctions : MonoBehaviour{
                 game.transitionEnd = false;
                 EndScreenMinigame.ProcessScores();
             }
-        }*/
+        }
     }
 
     public void HowToPlay() {
@@ -70,11 +76,11 @@ public class MinigameButtonFunctions : MonoBehaviour{
         GameManagerType game = GameManagerType.Instance;
         MinigameSO so = new MinigameSO();
         
-        /*if (!game.playPressed) {
+        if (!game.playPressed) {
             game.resultsScreen.scores = new List<int>();
             Instantiate(game.transition, game.canvas);
             game.playPressed = true;
-        }*/
+        }
     }
 
     public void PlaySound(AudioClip soundToPlay) {
@@ -83,5 +89,5 @@ public class MinigameButtonFunctions : MonoBehaviour{
             GameManagerType.Instance.sfx.Play();
         } catch { }
         
-    }
+    }*/
 }

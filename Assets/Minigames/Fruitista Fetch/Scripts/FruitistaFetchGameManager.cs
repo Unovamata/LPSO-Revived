@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class FruitistaFetchGameManager : MonoBehaviour{
+public class FruitistaFetchGameManager : MinigameType{
     [HideInInspector] public static FruitistaFetchGameManager Instance;
 
     private void Awake() {
@@ -17,20 +17,23 @@ public class FruitistaFetchGameManager : MonoBehaviour{
     public Transform canvas;
     public GameObject levelText;
     public GameObject comboText;
-    GameManagerType game;
     public AudioClip collectAppleSound, destroyAppleSound;
 
-    //-------------------------------------------------------------------------------------
-
+    ////////////////////////////////////////////////////////////////////////////////////////
 
     //Game States;
     [HideInInspector] public List<GameObject> pooledObjects;
+    MinigameTimerGUI timer;
+    MinigameFillBarGUI bar;
+    MinigameSO minigameSOController;
 
     //Creating the apples;
     void Start(){
         pooledObjects = new List<GameObject>();
-        game = GameManagerType.Instance;
         PoolApples(1, 1);
+        timer = MinigameTimerGUI.Instance;
+        bar = MinigameFillBarGUI.Instance;
+        minigameSOController = GetMinigameSOController();
         //Instantiate(levelText);
     }
 
@@ -50,56 +53,61 @@ public class FruitistaFetchGameManager : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        if(applesCollected >= totalApples) NewLevel();
+        if(GetHasMinigameEnded()){
+            particles.gameObject.SetActive(false);
 
-        //Create more apples mid-game;
-        if(!game.gameEnd) {
-            if(currentLevel > 2) {
-                particles.gameObject.SetActive(true);
-                if(pityBreakerTime <= originalTime / 2 && pityBreakerTime > 0) {
-                    particles.enableEmission = true;
-                    if(!playWind) {
-                        game.sfx2.PlayOneShot(windSound);
-                        playWind = true;
-                    }
-                } else {
-                    particles.enableEmission = false;
-                    playWind = false;
-                }
-
-                if(!createdMoreApples && pityBreakerTime <= 0) CreateMoreApples();
-                else pityBreakerTime -= Time.deltaTime;
-            }
-        } else particles.gameObject.SetActive(false);
-
-
-        //Game end;
-        if (game.canLoadResultsScreen) {
-            //Destroying relevant objects;
-            GameObject[] apples = GameObject.FindGameObjectsWithTag("Apple");
-            foreach(GameObject apple in apples) Destroy(apple);
-        }
-
-        if (!game.gameEnd) {
             Color glowOpacity = glowRender.color;
             glowOpacity.a = Mathf.Sin(Time.time) * 2;
             glowRender.color = glowOpacity;
+
+            return;
+        } 
+
+        if(applesCollected >= totalApples) NewLevel();
+
+        
+
+        //Create more apples mid-game;
+        if(currentLevel > 2) {
+            particles.gameObject.SetActive(true);
+            if(pityBreakerTime <= originalTime / 2 && pityBreakerTime > 0) {
+                particles.enableEmission = true;
+                if(!playWind) {
+                    PlaySFX(windSound);
+                    playWind = true;
+                }
+            } else {
+                particles.enableEmission = false;
+                playWind = false;
+            }
+
+            if(!createdMoreApples && pityBreakerTime <= 0) CreateMoreApples();
+            else pityBreakerTime -= Time.deltaTime;
         }
+
+
+        //Game end;
+        if (!GetCanLoadResultsScreen()) return;
+
+        //Destroying relevant objects;
+        GameObject[] apples = GameObject.FindGameObjectsWithTag("Apple");
+        foreach(GameObject apple in apples) Destroy(apple);
     }
 
     public void SendScores() {
-        if(game.isReady) {
-            /*EndScreenMinigame results = game.resultsScreen;
+        if(GetIsMinigameReady()) {
             int comboScore = maxCombo * 100;
             int totalScore = comboScore + currentScore;
+            /*EndScreenMinigame results = game.resultsScreen;
+            
 
             if(results.scores.Count < 2) {
                 results.scores.Add(currentScore);
                 results.scores.Add(comboScore);
-            }
+            }*/
 
-            if(game.controller.highscore < totalScore) game.controller.highscore = totalScore;
-            scoreSent = true;*/
+            if(minigameSOController.highscore < totalScore) minigameSOController.highscore = totalScore;
+            scoreSent = true;
         }
     }
 
@@ -108,12 +116,11 @@ public class FruitistaFetchGameManager : MonoBehaviour{
         totalApples = 0;
         currentScore = 0;
         currentLevel = 0;
-        game.timer.timeAvailable = game.timer.originalTime;
+        MinigameTimerGUI.TimerReset(this);
         highscore.text = "0";
         level.text = "Level 1";
         this.enabled = false;
         poolSizeRange = Vector2.one;
-        game.timer.timesUp = false;
         //GameManagerType.Instance.resultsScreen.scores = new List<int>();
     }
 
@@ -155,7 +162,7 @@ public class FruitistaFetchGameManager : MonoBehaviour{
         }
 
         //Loading the data inside the bar filler GUI element;
-        game.bar.maxItems = totalApples;
+        bar.SetMaxItemsInBar(totalApples);
     }
 
     private void CreateMoreApples() {
@@ -184,9 +191,10 @@ public class FruitistaFetchGameManager : MonoBehaviour{
         }
 
         //Loading the data inside the bar filler GUI element;
-        game.bar.maxItems = totalApples;
+
+        bar.SetMaxItemsInBar(totalApples);
         createdMoreApples = true;
-        game.bar.reset = true;
+        bar.RefreshData();
     }
 
 
@@ -207,7 +215,7 @@ public class FruitistaFetchGameManager : MonoBehaviour{
         //game.isReady = false;
         PoolApples((int)poolSizeRange.x, (int)poolSizeRange.y);
 
-        if(currentLevel != 1 && !game.playPressed){
+        if(currentLevel != 1){
             Instantiate(levelText, canvas.transform); //Level X;
             poolSizeRange.x = poolSizeRange.x + Random.Range(1, 3);
             poolSizeRange.y = Mathf.RoundToInt(poolSizeRange.x * 1.5f) + Random.Range(2, 4);
@@ -219,6 +227,6 @@ public class FruitistaFetchGameManager : MonoBehaviour{
 
         //GUI;
         level.text = string.Format("Level: {0}", currentLevel); //Sending data to the GUI;
-        game.timer.timeAvailable = game.timer.timeAvailable + 0.2f; //In seconds;
+        timer.AddTime(0.2f);
     }
 }

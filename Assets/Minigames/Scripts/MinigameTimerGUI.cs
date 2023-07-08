@@ -4,12 +4,10 @@ using UnityEngine;
 using TMPro;
 
 [AddComponentMenu("Minigames/GUI/Minigame Timer")]
-public class MinigameTimeGUI : MonoBehaviour{
+public class MinigameTimerGUI : MonoBehaviour{
 
     //Instance Management;
-    MinigameTimeGUI Instance;
-
-    public MinigameTimeGUI GetInstance(){ return Instance; }
+    public static MinigameTimerGUI Instance;
 
     void Awake(){ Instance = this; }
 
@@ -23,8 +21,13 @@ public class MinigameTimeGUI : MonoBehaviour{
     //Time Checks;
     bool isTimeUp, isCountingDown;
     [SerializeField] float timeAvailable;
+    public void AddTime(float input){ timeAvailable += input; }
+    public bool IsThereAnyTime(){ return timeAvailable > 0; }
+
     [HideInInspector] float originalTimeAvailable;
     MinigameType MinigameReference;
+
+    
 
     void Start(){
         TimerTextFormatTime();
@@ -44,9 +47,15 @@ public class MinigameTimeGUI : MonoBehaviour{
 
     ////////////////////////////////////////////////////////////////////////////////////////
 
+    bool isPaused;
+
+    public bool GetIsPaused(){ return isPaused; }
+    public void SetIsPaused(bool IsPaused){ isPaused = IsPaused; }
 
     void Update(){
         bool isMinigamePlayable = MinigameReference.GetIsMinigameReady() || !MinigameReference.GetHasMinigameEnded();
+
+        if(!isMinigamePlayable) return;
 
         if(isTimeUp){
             return;
@@ -68,5 +77,13 @@ public class MinigameTimeGUI : MonoBehaviour{
         timeAvailable = originalTimeAvailable;
         isTimeUp = false;
         MinigameReference.SetHasMinigameEnded(false);
+    }
+
+    public static void TimerReset(MinigameType minigame){
+        MinigameTimerGUI timer = MinigameTimerGUI.Instance;
+
+        timer.timeAvailable = timer.originalTimeAvailable;
+        timer.isTimeUp = false;
+        minigame.SetHasMinigameEnded(false);
     }
 }

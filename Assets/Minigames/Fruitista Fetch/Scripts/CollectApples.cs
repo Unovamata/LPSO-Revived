@@ -12,7 +12,7 @@ public class CollectApples : MonoBehaviour{
     [HideInInspector] public Color[] appleColors = new Color[5]; //Colors to color the collect area;
     private int appleIndex = 4, cooldown = 0, combo = 0; //Controllers for the collect area;
     FruitistaFetchGameManager game;
-    GameManagerType gameType;
+    MinigameType gameType;
     PlayerMove player;
 
     //-------------------------------------------------------------------------------------
@@ -27,8 +27,7 @@ public class CollectApples : MonoBehaviour{
         appleColors[1] = new Color(0.98f, 0.6f, 0.06f, 0.50f);
         appleColors[2] = new Color(0.75f, 0.11f, 0.06f, 0.50f);
         appleColors[3] = new Color(0.75f, 0.70f, 0.1f, 0.50f);
-        game = FruitistaFetchGameManager.Instance;
-        gameType = GameManagerType.Instance;
+        gameType = MinigameType.Instance;
         player = PlayerMove.Instance;
     }
 
@@ -61,7 +60,7 @@ public class CollectApples : MonoBehaviour{
         //Destroying apples;
         float distance = Vector2.Dot(transform.position, player.basketPosition);
         if(distance <= 0.35f){
-            if(!gameType.gameEnd && !gameType.abruptEnd) {
+            if(!gameType.GetHasMinigameEnded()) {
                 DestroyApplePile(player.applesList.Count);
             }
         } else {
@@ -100,7 +99,7 @@ public class CollectApples : MonoBehaviour{
             emptied = false;
         }
 
-        if(GameManagerType.Instance.canLoadResultsScreen){
+        if(game.GetCanLoadResultsScreen()){
             emptied = true;
             combo = 0;
             TextAnimations.ResetTextParameters(game.comboText, Vector3.zero);
@@ -113,7 +112,7 @@ public class CollectApples : MonoBehaviour{
         int applePile = PlayerMove.Instance.applesList.Count; 
 
         //Collecting apples;
-        if(cooldown <= 0 && gameType.isReady && !gameType.gameEnd && !gameType.abruptEnd) CollectApple(collision, applePile);
+        if(cooldown <= 0 && gameType.GetIsMinigameReady() && !gameType.GetHasMinigameEnded()) CollectApple(collision, applePile);
     }
 
     //-------------------------------------------------------------------------------------
@@ -172,20 +171,19 @@ public class CollectApples : MonoBehaviour{
             if(appleController.type) {
                 if(!almostThere) {
                     if(game.applesPooled[(int)firstApple] > 2 && Mathf.FloorToInt(game.applesPooled[(int)firstApple] / 2) == applePile) {
-                        GameManagerType.CreateGreenText("Getting Close!", transform.position, 0.4f, 0.8f);
+                        //GameManagerType.CreateGreenText("Getting Close!", transform.position, 0.4f, 0.8f);
                         almostThere = true;
                     }
                 }
 
                 if(!gottemAll) {
                     if(game.applesPooled[(int)firstApple] - 1 == applePile) {
-                        GameManagerType.CreatePinkText("Got 'Em All!", transform.position, 0.4f, 1f);
+                        //GameManagerType.CreatePinkText("Got 'Em All!", transform.position, 0.4f, 1f);
                     }
                 }
             }
 
-            gameType.sfx.clip = game.collectAppleSound;
-            gameType.sfx.Play();
+            gameType.PlaySFX(game.collectAppleSound);
         } else {
             //If its a Null apple;
             if((int)firstApple == 4 && appleController.canPickup) firstApple = appleController.color;
@@ -195,12 +193,13 @@ public class CollectApples : MonoBehaviour{
     //-------------------------------------------------------------------------------------
 
     private void DestroyApplePile(int applePile) {
+        MinigameTimerGUI timer = MinigameTimerGUI.Instance;
+
         //Destroying the apples;
         //if (collision.gameObject == PlayerMove.Instance.ShadowBasket) {
-        if (Input.GetMouseButtonDown(0) && gameType.timer.timeAvailable > 0 && applePile > 0) {
+        if (Input.GetMouseButtonDown(0) && timer.IsThereAnyTime() && applePile > 0) {
             emptied = true;
-            gameType.sfx.clip = FruitistaFetchGameManager.Instance.destroyAppleSound;
-            gameType.sfx.Play();
+            gameType.PlaySFX(FruitistaFetchGameManager.Instance.destroyAppleSound);
 
             //Combos;
             try {
@@ -208,10 +207,11 @@ public class CollectApples : MonoBehaviour{
                     float addedTime = 0.5f;
                     combo++;
                     if(combo > 5) {
-                        gameType.timer.timeAvailable += addedTime;
+
+                        timer.AddTime(addedTime);
                         Vector2 textPosition = transform.position;
                         textPosition.y -= 0.25f;
-                        GameManagerType.CreatePinkText("+0.5 Secs!", textPosition, 0.4f, 0.8f);
+                        //GameManagerType.CreatePinkText("+0.5 Secs!", textPosition, 0.4f, 0.8f);
                     }
                     if(game.maxCombo < combo) game.maxCombo = combo;
                 } else {
@@ -234,10 +234,12 @@ public class CollectApples : MonoBehaviour{
 
             //Translating the data to the gui bars & scores;
             game.highscore.text = currentScore.ToString();
-                
-            int applesGotten = gameType.bar.currentItems; //Bar;
+            
+            MinigameFillBarGUI bar = MinigameFillBarGUI.Instance;
+
+            int applesGotten = bar.GetCurrentItemsInBar(); //Bar;
             game.applesCollected = applesGotten + applePile;
-            gameType.bar.currentItems = applesGotten + applePile;
+            bar.SetCurrentItemsInBar(applesGotten + applePile);
             //gameType.bar.textMesh.text = (applesGotten + applePile).ToString();
 
             if(combo > 5){
@@ -261,7 +263,7 @@ public class CollectApples : MonoBehaviour{
 
             if(applePile > 1) appleText = string.Format("{0} Apples!", applePile);
             else appleText = "1 Apple!";
-            GameManagerType.CreateGreenText(appleText, transform.position, 0.4f, 0.8f);
+            //GameManagerType.CreateGreenText(appleText, transform.position, 0.4f, 0.8f);
         }
         //}
     }

@@ -8,14 +8,11 @@ public class GUITextLeanTween : MonoBehaviour{
     bool animated = false;
     float timer;
     public AudioClip soundToPlay;
-    GameManagerType gameType;
+    MinigameType gameType;
 
     private void Start() {
-        gameType = GameManagerType.Instance;
-        try {
-            gameType.sfx.clip = soundToPlay;
-            gameType.sfx.Play();
-        } catch { }
+        gameType = MinigameType.Instance;
+        try { gameType.PlaySFX(soundToPlay); } catch { }
     }
 
 
@@ -23,7 +20,7 @@ public class GUITextLeanTween : MonoBehaviour{
     void Update(){
         if (!animated) {
             TextAnimations.JumpAndFade(gameObject, textScale, TextAnimations.SCALED);
-            GameManagerType.ActivateScripts(GameManagerType.GetAllComponents(GameManagerType.Instance.gameObject));
+            //GameManagerType.ActivateScripts(GameManagerType.GetAllComponents(GameManagerType.Instance.gameObject));
             animated = true;
         } else {
             timer += Time.deltaTime;

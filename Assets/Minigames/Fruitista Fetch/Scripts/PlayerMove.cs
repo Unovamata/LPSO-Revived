@@ -40,8 +40,10 @@ public class PlayerMove : MonoBehaviour {
 
     void Update() {
         basketPosition = basketTransform.position;
-        if(!GameManagerType.Instance.canLoadResultsScreen) {
-            if(GameManagerType.Instance.gameStart) PlayerFollowMouse(true);
+        MinigameType game = MinigameType.Instance;
+
+        if(!game.GetCanLoadResultsScreen()) {
+            if(game.GetIsMinigameReady()) PlayerFollowMouse(true);
         } else {
             transform.position = startPosition;
             applesList = new List<GameObject>();

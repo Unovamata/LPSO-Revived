@@ -42,6 +42,12 @@ public class MinigameFillBarGUI : MonoBehaviour{
     public void SetCurrentItemsInBar(int CurrentItemsInBar){ currentItemsInBar = CurrentItemsInBar; }
     public bool GetIsRefreshingData(){ return isRefreshingData; }
     public void SetIsRefreshingData(bool IsRefreshingData){ isRefreshingData = IsRefreshingData; }
+    public void RefreshData(){ isRefreshingData = true; }
+    public void ResetData(){ 
+        isRefreshingData = true;
+        currentItemsInBar = 0;
+    }
+
 
     //Animation;
     float animationSpeed = 7, animationScale = 0;

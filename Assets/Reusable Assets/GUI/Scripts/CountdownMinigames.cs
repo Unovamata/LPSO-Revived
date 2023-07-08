@@ -25,13 +25,7 @@ public class CountdownMinigames : MonoBehaviour{
         countdownSoundsTimer += Time.deltaTime;
         try {
             if(countdownSoundsTimer > wait[indexWait]) {
-                AudioSource source;
-
-                if(indexWait < 3) source = GameManagerType.Instance.sfx;
-                else source = GameManagerType.Instance.sfx2;
-
-                source.clip = sounds[indexWait];
-                source.Play();
+                MinigameType.Instance.PlaySFX(sounds[indexWait]);
                 indexWait++;
             }
         } catch { }
@@ -45,7 +39,7 @@ public class CountdownMinigames : MonoBehaviour{
             countdownStarted = true;
         } else {
             timer += Time.deltaTime;
-            if (timer > 4f) GameManagerType.Instance.isReady = true;
+            if (timer > 4f) MinigameType.Instance.SetIsMinigameReady(true);
             if(timer > TextAnimations.SCALED * cooldown) {
                 Destroy(gameObject);
             }
