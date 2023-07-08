@@ -116,11 +116,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Back Pink
+  m_Name: Fnt_BluestoneBackPink
   m_EditorClassIdentifier: 
-  hashCode: 1757570359
+  hashCode: 1622325865
   material: {fileID: -6211387555981291215}
-  materialHashCode: -749896777
+  materialHashCode: -764410327
   m_Version: 1.1.0
   m_SourceFontFileGUID: e497636f999788b4b80cc01a1f40a134
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: e497636f999788b4b80cc01a1f40a134, type: 3}

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -15,7 +13,7 @@ public class MinigameTimerGUI : MonoBehaviour{
     ////////////////////////////////////////////////////////////////////////////////////////
 
     //Inspector References;
-    TextMeshProUGUI timeTextMesh;
+    [SerializeField] TextMeshProUGUI timeTextMesh;
     [SerializeField] GameObject timesUpGUIReference;
 
     //Time Checks;

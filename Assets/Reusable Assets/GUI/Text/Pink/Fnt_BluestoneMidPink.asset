@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Mid Pink
+  m_Name: Fnt_BluestoneMidPink
   m_EditorClassIdentifier: 
-  hashCode: 1365843644
+  hashCode: 2619843
   material: {fileID: 8198870393589357455}
-  materialHashCode: -318248420
+  materialHashCode: -975431933
   m_Version: 1.1.0
   m_SourceFontFileGUID: e497636f999788b4b80cc01a1f40a134
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: e497636f999788b4b80cc01a1f40a134, type: 3}
