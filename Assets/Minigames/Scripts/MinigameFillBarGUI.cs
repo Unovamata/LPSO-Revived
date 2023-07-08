@@ -12,7 +12,7 @@ public class MinigameFillBarGUI : MonoBehaviour{
     ////////////////////////////////////////////////////////////////////////////////////////
 
     [SerializeField] Image backgroundBar, progressBar;
-    public RectTransform backgroundBarRect, progressBarRect;
+    RectTransform backgroundBarRect, progressBarRect;
     public TextMeshProUGUI currentItemsTextMesh;
 
     void SetTextInTextMesh(string input){ currentItemsTextMesh.text = input; }
