@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 9186514076856110011}
   - component: {fileID: 9186514076856110008}
   - component: {fileID: 9186514076856110010}
-  - component: {fileID: 4214117204254969810}
-  - component: {fileID: -4666243315461628796}
+  - component: {fileID: 4721116478885315797}
+  - component: {fileID: 7676773840540665316}
   m_Layer: 5
-  m_Name: PhysicsAppleOrange
+  m_Name: P_PhysicsAppleGreen
   m_TagString: AppleR
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 9186514076856110009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3000, y: 3000, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 50, y: 50, z: 1.6666667}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 3286163911610860551, guid: ce16a1d79cde8d144be194a0a1627af8, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: 06d7375826279e34fa3ce1969583c4fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,10 +100,10 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.012}
   serializedVersion: 2
   m_Radius: 0.02
---- !u!50 &4214117204254969810
+--- !u!50 &4721116478885315797
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-4666243315461628796
+--- !u!114 &7676773840540665316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,14 +133,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9186514076856110009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a7143c313a3c5445b9da0ad48a7a824, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c8cd3cccc9c6a741bea1521114fe524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  physicsApples: []
-  transform: {fileID: 0}
-  createPosition: {x: 0, y: 0, z: 0}
-  originalPosition: {x: 0, y: 0, z: 0}
-  restorePosition: 0
-  isGameEndTransition: 0
-  countdown: {fileID: 0}
+  instanceList: []
+  instanceCreatePosition: {x: 0, y: 0}
+  instanceDestroyPosition: {x: 0, y: -9}
+  transitionDurationInSeconds: 0

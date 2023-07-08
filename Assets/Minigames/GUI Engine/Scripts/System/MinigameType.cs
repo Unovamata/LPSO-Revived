@@ -17,11 +17,24 @@ public interface IMinigameAudio{
     void PlaySound();
 }
 
-public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
+public enum MinigameStates{
+    MinigameStartScreen,
+    MinigameInTransition,
+    MinigamePlaying,
+    MinigameStop,
+    MinigameEndScreen,
+}
 
+public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
+    MinigameStates currentState;
+
+    public MinigameStates GetCurrentState(){ return currentState; }
+    public void SetCurrentState(MinigameStates CurrentState){ currentState = CurrentState; }
 
     //IMinigameType
-    public void Play(){ }
+    public void Play(){ 
+        currentState = MinigameStates.MinigameInTransition;
+    }
 
     public void HowToPlay(){ }
 
@@ -63,12 +76,24 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
 
 
     [SerializeField] AudioSource soundtrack, sfx;
+    [SerializeField] AudioClip songToPlay;
 
+    public void PlaySong(){ soundtrack.Play(); }
     public void PlaySFX(AudioClip sound){ sfx.PlayOneShot(sound); }
 
     [SerializeField] MinigameSO controller;
 
     public MinigameSO GetMinigameSOController(){ return controller; }
+
+    [SerializeField] protected Canvas canvasReference;
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+    void Start(){
+        currentState = MinigameStates.MinigameStartScreen;
+        PlaySong();
+    }
 
     /*[HideInInspector] public static GameManagerType Instance;
 

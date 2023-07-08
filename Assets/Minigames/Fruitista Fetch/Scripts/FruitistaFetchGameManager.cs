@@ -5,7 +5,10 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 public class FruitistaFetchGameManager : MinigameType{
-    [HideInInspector] public static FruitistaFetchGameManager Instance;
+    [SerializeField] GameObject levelPrefabReference, comboPrefabReferece;
+    
+
+    /*[HideInInspector] public static FruitistaFetchGameManager Instance;
 
     private void Awake() {
         Instance = this;
@@ -98,13 +101,13 @@ public class FruitistaFetchGameManager : MinigameType{
         if(GetIsMinigameReady()) {
             int comboScore = maxCombo * 100;
             int totalScore = comboScore + currentScore;
-            /*EndScreenMinigame results = game.resultsScreen;
+            EndScreenMinigame results = game.resultsScreen;
             
 
             if(results.scores.Count < 2) {
                 results.scores.Add(currentScore);
                 results.scores.Add(comboScore);
-            }*/
+            }
 
             if(minigameSOController.highscore < totalScore) minigameSOController.highscore = totalScore;
             scoreSent = true;
@@ -228,5 +231,5 @@ public class FruitistaFetchGameManager : MinigameType{
         //GUI;
         level.text = string.Format("Level: {0}", currentLevel); //Sending data to the GUI;
         timer.AddTime(0.2f);
-    }
+    }*/
 }
