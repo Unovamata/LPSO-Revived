@@ -39,9 +39,6 @@ public class FruitistaFetchGameManager : MinigameType{
     }
 
 
-    ////////////////////////////////////////////////////////////////////////////////////////
-
-
     [SerializeField] List<GameObject> instancePool;
     int amountToPool, maxAppleIndex, totalApples = 0;
     [HideInInspector] public int[] applesPooled = new int[4]; //Apples pooled for each type; For combos;
@@ -81,6 +78,9 @@ public class FruitistaFetchGameManager : MinigameType{
 
 
     ////////////////////////////////////////////////////////////////////////////////////////
+
+
+    
 
 
     /*[HideInInspector] public static FruitistaFetchGameManager Instance;

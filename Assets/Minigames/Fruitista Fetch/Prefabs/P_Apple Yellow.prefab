@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9186514076856110010}
   - component: {fileID: 3477245055829845633}
   m_Layer: 0
-  m_Name: AppleOrange
+  m_Name: P_Apple Yellow
   m_TagString: Apple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3286163911610860551, guid: ce16a1d79cde8d144be194a0a1627af8, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: a1c1b44f07b686240b7521e620e269d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,13 +111,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 9186514076856110009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 480c2fb92d60db34d86bbad7100c5a52, type: 3}
+  m_Script: {fileID: 11500000, guid: f08c808f51b0ad04fb81e9f2639d5d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 1
+  color: 3
   pilePosition: 0
   isPicked: 0
   canPickup: 0
+  type: 1
   startPosition: {x: 0, y: 0}
   endPosition: {x: 0, y: 0}
   tempPosition: {x: 0, y: 0}

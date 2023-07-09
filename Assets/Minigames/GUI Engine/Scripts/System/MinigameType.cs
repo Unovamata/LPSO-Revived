@@ -23,6 +23,8 @@ public enum MinigameStates{
     MinigamePlaying,
     MinigameStop,
     MinigameEndScreen,
+    MinigameHowToPlay,
+    MinigameLeave
 }
 
 public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
@@ -36,12 +38,12 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
         currentState = MinigameStates.MinigameInTransition;
     }
 
-    public void HowToPlay(){ }
+    public void HowToPlay(){ currentState = MinigameStates.MinigameHowToPlay; }
 
-    public void Leave(){ }
-    public void StopPlayingGame(){ }
+    public void Leave(){ currentState = MinigameStates.MinigameLeave; }
+    public void StopPlayingGame(){ currentState = MinigameStates.MinigameStop; }
 
-    public void CallTransition(){}
+    public void CallTransition(){ }
 
     //IMinigameAudio
 
@@ -122,6 +124,26 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
         try { scoreGUI = MinigameScoreGUI.Instance; } catch {}
         try { timerGUI = MinigameTimerGUI.Instance; } catch {}
     }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+    [SerializeField] GameObject startScreenReference, resultsScreenReference;
+
+    protected virtual void Update(){
+        switch(currentState){
+            case MinigameStates.MinigameStartScreen:
+                startScreenReference.SetActive(true);
+                resultsScreenReference.SetActive(false);
+            break;
+
+            case MinigameStates.MinigameEndScreen:
+                startScreenReference.SetActive(false);
+                resultsScreenReference.SetActive(true);
+            break;
+        }
+    }
+
 
     /*[HideInInspector] public static GameManagerType Instance;
 

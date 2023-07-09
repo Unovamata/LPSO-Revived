@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4584787568704148195}
   - component: {fileID: 6490029611703482036}
   - component: {fileID: 8054262075367100542}
-  - component: {fileID: 3713531721694126448}
+  - component: {fileID: 8743413083587457495}
   m_Layer: 5
   m_Name: Light Pink Text
   m_TagString: Untagged
@@ -69,8 +69,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d4f1ea57794a8fb4e87b9d0c5978635b, type: 2}
-  m_sharedMaterial: {fileID: 8198870393589357455, guid: d4f1ea57794a8fb4e87b9d0c5978635b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1c54be9e649c6a5449ced611389e9d3f, type: 2}
+  m_sharedMaterial: {fileID: 8198870393589357455, guid: 1c54be9e649c6a5449ced611389e9d3f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3713531721694126448
+--- !u!114 &8743413083587457495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd6f1096eab1c94cb23617b687021ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whiteText: {fileID: 0}
+  whiteText: {fileID: 2865565946691835501}
   opacity: 1
 --- !u!1 &2865565946691835501
 GameObject:
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 2255678753482079169}
   - component: {fileID: 7715301924049502952}
   - component: {fileID: 349144918179243485}
-  - component: {fileID: 1136677924998614277}
+  - component: {fileID: 9101322403613058338}
   m_Layer: 5
   m_Name: Dark Pink Text
   m_TagString: Untagged
@@ -393,8 +393,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4e3cc90697077654791012d7269823a6, type: 2}
-  m_sharedMaterial: {fileID: -6211387555981291215, guid: 4e3cc90697077654791012d7269823a6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bcd0384e40be6ad4a848dc7016154c84, type: 2}
+  m_sharedMaterial: {fileID: -6211387555981291215, guid: bcd0384e40be6ad4a848dc7016154c84, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1136677924998614277
+--- !u!114 &9101322403613058338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -472,5 +472,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd6f1096eab1c94cb23617b687021ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whiteText: {fileID: 0}
+  whiteText: {fileID: 2865565946691835501}
   opacity: 1

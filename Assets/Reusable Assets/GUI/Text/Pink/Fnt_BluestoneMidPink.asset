@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Fnt_BluestoneMidPink
   m_EditorClassIdentifier: 
-  hashCode: 2619843
+  hashCode: 1688730946
   material: {fileID: 8198870393589357455}
-  materialHashCode: -975431933
+  materialHashCode: 1575233314
   m_Version: 1.1.0
   m_SourceFontFileGUID: e497636f999788b4b80cc01a1f40a134
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: e497636f999788b4b80cc01a1f40a134, type: 3}
@@ -2724,9 +2724,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BlueStone SDF Material
-  m_Shader: {fileID: 4800000, guid: 8c4d5219d545eab4b81af197677d4417, type: 3}
-  m_ValidKeywords:
-  - OUTLINE_ON
+  m_Shader: {fileID: 4800000, guid: e5ef058415fa9404e9a3fe8395999bb4, type: 3}
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

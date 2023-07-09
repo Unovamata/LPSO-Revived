@@ -8,9 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BlueStone SDF Material
-  m_Shader: {fileID: 4800000, guid: 8c4d5219d545eab4b81af197677d4417, type: 3}
-  m_ValidKeywords:
-  - OUTLINE_ON
+  m_Shader: {fileID: 4800000, guid: e5ef058415fa9404e9a3fe8395999bb4, type: 3}
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
