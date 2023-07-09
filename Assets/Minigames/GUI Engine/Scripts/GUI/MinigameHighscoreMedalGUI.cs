@@ -4,6 +4,15 @@ using UnityEngine;
 using TMPro;
 
 public class MinigameHighscoreMedalGUI : MonoBehaviour{
+    //Instance Management;
+    public static MinigameHighscoreMedalGUI Instance;
+
+    void Awake(){ Instance = this; }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+
     [SerializeField] TextMeshProUGUI highscoreTextMesh;
     int highscore = 0;
 

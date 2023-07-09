@@ -14,7 +14,7 @@ public class LevelTextLeanTween : MonoBehaviour{
 
     void Start(){
         //Calling the data needed;
-        levelNumber = FruitistaFetchGameManager.Instance.currentLevel;
+        levelNumber = FruitistaFetchGameManager.Instance.GetCurrentLevel();
         game = MinigameType.Instance;
 
         try { if(pauseTime) MinigameTimerGUI.Instance.SetIsPaused(true); } catch { } //Pausing time if found;

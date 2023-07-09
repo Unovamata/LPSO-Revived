@@ -11,8 +11,7 @@ public class CollectApples : MonoBehaviour{
     private Vector2 originalSize, destinationScale; //Scale management;
     [HideInInspector] public Color[] appleColors = new Color[5]; //Colors to color the collect area;
     private int appleIndex = 4, cooldown = 0, combo = 0; //Controllers for the collect area;
-    FruitistaFetchGameManager game;
-    MinigameType gameType;
+    FruitistaFetchGameManager minigameReference;
     PlayerMove player;
 
     //-------------------------------------------------------------------------------------
@@ -27,7 +26,7 @@ public class CollectApples : MonoBehaviour{
         appleColors[1] = new Color(0.98f, 0.6f, 0.06f, 0.50f);
         appleColors[2] = new Color(0.75f, 0.11f, 0.06f, 0.50f);
         appleColors[3] = new Color(0.75f, 0.70f, 0.1f, 0.50f);
-        gameType = MinigameType.Instance;
+        minigameReference = FruitistaFetchGameManager.Self;
         player = PlayerMove.Instance;
     }
 
@@ -60,7 +59,7 @@ public class CollectApples : MonoBehaviour{
         //Destroying apples;
         float distance = Vector2.Dot(transform.position, player.basketPosition);
         if(distance <= 0.35f){
-            if(!gameType.GetHasMinigameEnded()) {
+            if(!minigameReference.GetHasMinigameEnded()) {
                 DestroyApplePile(player.applesList.Count);
             }
         } else {
@@ -99,10 +98,10 @@ public class CollectApples : MonoBehaviour{
             emptied = false;
         }
 
-        if(game.GetCanLoadResultsScreen()){
+        if(minigameReference.GetCanLoadResultsScreen()){
             emptied = true;
             combo = 0;
-            TextAnimations.ResetTextParameters(game.comboText, Vector3.zero);
+            TextAnimations.ResetTextParameters(minigameReference.GetComboPrefabReference(), Vector3.zero);
         }
     }
 
@@ -112,7 +111,7 @@ public class CollectApples : MonoBehaviour{
         int applePile = PlayerMove.Instance.applesList.Count; 
 
         //Collecting apples;
-        if(cooldown <= 0 && gameType.GetIsMinigameReady() && !gameType.GetHasMinigameEnded()) CollectApple(collision, applePile);
+        if(cooldown <= 0 && minigameReference.GetIsMinigameReady() && !minigameReference.GetHasMinigameEnded()) CollectApple(collision, applePile);
     }
 
     //-------------------------------------------------------------------------------------
@@ -170,20 +169,20 @@ public class CollectApples : MonoBehaviour{
             //Triggering the text once per cycle;
             if(appleController.type) {
                 if(!almostThere) {
-                    if(game.applesPooled[(int)firstApple] > 2 && Mathf.FloorToInt(game.applesPooled[(int)firstApple] / 2) == applePile) {
+                    if(minigameReference.applesPooled[(int)firstApple] > 2 && Mathf.FloorToInt(minigameReference.applesPooled[(int)firstApple] / 2) == applePile) {
                         //GameManagerType.CreateGreenText("Getting Close!", transform.position, 0.4f, 0.8f);
                         almostThere = true;
                     }
                 }
 
                 if(!gottemAll) {
-                    if(game.applesPooled[(int)firstApple] - 1 == applePile) {
+                    if(minigameReference.applesPooled[(int)firstApple] - 1 == applePile) {
                         //GameManagerType.CreatePinkText("Got 'Em All!", transform.position, 0.4f, 1f);
                     }
                 }
             }
 
-            gameType.PlaySFX(game.collectAppleSound);
+            minigameReference.PlaySFX(minigameReference.GetCollectAppleSound());
         } else {
             //If its a Null apple;
             if((int)firstApple == 4 && appleController.canPickup) firstApple = appleController.color;
@@ -199,11 +198,11 @@ public class CollectApples : MonoBehaviour{
         //if (collision.gameObject == PlayerMove.Instance.ShadowBasket) {
         if (Input.GetMouseButtonDown(0) && timer.IsThereAnyTime() && applePile > 0) {
             emptied = true;
-            gameType.PlaySFX(FruitistaFetchGameManager.Instance.destroyAppleSound);
+            minigameReference.PlaySFX(minigameReference.GetDestroyAppleSound());
 
             //Combos;
             try {
-                if(applePile >= game.applesPooled[(int)firstApple]){
+                if(applePile >= minigameReference.applesPooled[(int)firstApple]){
                     float addedTime = 0.5f;
                     combo++;
                     if(combo > 5) {
@@ -213,32 +212,34 @@ public class CollectApples : MonoBehaviour{
                         textPosition.y -= 0.25f;
                         //GameManagerType.CreatePinkText("+0.5 Secs!", textPosition, 0.4f, 0.8f);
                     }
-                    if(game.maxCombo < combo) game.maxCombo = combo;
+                    if(minigameReference.GetMaxCombo() < combo) minigameReference.SetMaxCombo(combo);
                 } else {
                     combo = 0;
-                    TextAnimations.ResetTextParameters(game.comboText, Vector3.zero);
+                    TextAnimations.ResetTextParameters(minigameReference.GetComboPrefabReference(), Vector3.zero);
                 }
             } catch { }
 
             //Score calculation;
-            int currentScore = game.currentScore;
+            MinigameScoreGUI score = MinigameScoreGUI.Instance;
+            int currentScore = score.GetCurrentScore();
             currentScore += Mathf.RoundToInt((applePile * 100) * (1 + (applePile * 0.15f)) * (1 + (combo * 0.05f)));
-            game.currentScore = currentScore;    
+            score.SetCurrentScore(currentScore);
             //GameManagerType.CameraPulse(2.6f);
 
             for(int i = 0; i < applePile; i++) {
                 GameObject appleToRemove = PlayerMove.Instance.applesList[i];
-                game.pooledObjects.Remove(appleToRemove);
+                minigameReference.GetPooledObjects().Remove(appleToRemove);
                 Destroy(appleToRemove);
             }
 
             //Translating the data to the gui bars & scores;
-            game.highscore.text = currentScore.ToString();
+            //MinigameHighscoreMedalGUI.Instance.SetHighscore();
+            //game.highscore.text = currentScore.ToString();
             
             MinigameFillBarGUI bar = MinigameFillBarGUI.Instance;
 
             int applesGotten = bar.GetCurrentItemsInBar(); //Bar;
-            game.applesCollected = applesGotten + applePile;
+            //minigameReference.applesCollected = applesGotten + applePile;
             bar.SetCurrentItemsInBar(applesGotten + applePile);
             //gameType.bar.textMesh.text = (applesGotten + applePile).ToString();
 
@@ -247,8 +248,9 @@ public class CollectApples : MonoBehaviour{
                 extraTimePos = new Vector3(position.x, position.y - 0.25f, position.z);
 
                 float comboScale = 0.5f + ((combo * 0.01f) * 2);
-                TextAnimations.Jump(game.comboText, new Vector3(comboScale, comboScale, 0));
-                game.comboText.GetComponent<LPSOText>().whiteText.GetComponent<TextMeshProUGUI>().text = string.Format("x{0} Combo", combo);
+                TextAnimations.Jump(minigameReference.GetComboPrefabReference(), new Vector3(comboScale, comboScale, 0));
+
+                minigameReference.GetComboPrefabReference().GetComponent<LPSOText>().whiteText.GetComponent<TextMeshProUGUI>().text = string.Format("x{0} Combo", combo);
             }
 
             //Removing garbage data;

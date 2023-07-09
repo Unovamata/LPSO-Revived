@@ -5,8 +5,83 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 public class FruitistaFetchGameManager : MinigameType{
+
+    //Instance Management;
+    public static FruitistaFetchGameManager Self;
+
+    void Awake(){ Self = this; }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+
+    //Text prefabs reference;
     [SerializeField] GameObject levelPrefabReference, comboPrefabReferece;
-    
+
+    public GameObject GetComboPrefabReference(){ return comboPrefabReferece; }
+
+    //Sounds;
+    [SerializeField] AudioClip collectAppleSound, destroyAppleSound;
+
+    public AudioClip GetCollectAppleSound(){ return collectAppleSound; }
+    public AudioClip GetDestroyAppleSound(){ return destroyAppleSound; }
+
+    //Data Reference;
+    [HideInInspector] List<GameObject> pooledObjects; //Total of apples created in a level;
+
+    public List<GameObject> GetPooledObjects(){ return pooledObjects; }
+
+    //GUI References;
+    protected override void Start(){
+        base.Start();
+        pooledObjects = new List<GameObject>();
+        PoolApples(1, 1);
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+
+    [SerializeField] List<GameObject> instancePool;
+    int amountToPool, maxAppleIndex, totalApples = 0;
+    [HideInInspector] public int[] applesPooled = new int[4]; //Apples pooled for each type; For combos;
+
+    void PoolApples(int min, int max) {
+        amountToPool = Random.Range(min, max);
+        
+        //Generating the apples;
+        int appleToGenerate = 2; //For the first level, only red apples can be generated;
+
+        for (int i = 0; i < amountToPool; i++){
+            if(currentLevel >= 2) appleToGenerate = Random.Range(0, maxAppleIndex);
+
+            //Creating the apples on a circumference;
+            float radius = Random.Range(0.7f, 2.3f);
+            float circle = Random.Range(0f, 360f);
+            float y = Mathf.Sin(circle);
+            float x = Mathf.Cos(circle);
+
+            Vector2 point = new Vector2(x, y); 
+            Vector2 applePosition = point * radius;
+
+            //Counting the apples;
+            totalApples++;
+            applesPooled[appleToGenerate]++; //Apples pooled for each type; For combos;
+
+            //Creating the apples inside the game;
+            GameObject obj = Instantiate(instancePool[appleToGenerate], point * 5, transform.rotation);
+            obj.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(Vector2.Distance(point, applePosition));
+            obj.GetComponent<ApplePickup>().endPosition = applePosition;
+            pooledObjects.Add(obj);
+        }
+
+        //Loading the data inside the bar filler GUI element;
+        fillBarGUI.SetMaxItemsInBar(totalApples);
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////
+
 
     /*[HideInInspector] public static FruitistaFetchGameManager Instance;
 

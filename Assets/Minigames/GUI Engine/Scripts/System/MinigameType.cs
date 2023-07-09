@@ -74,12 +74,10 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
     public bool GetCanLoadResultsScreen(){ return canLoadResultsScreen; }
     public void SetCanLoadResultsScreen(bool CanLoadResultsScreen){ canLoadResultsScreen = CanLoadResultsScreen; }
 
-
-    [SerializeField] AudioSource soundtrack, sfx;
-    [SerializeField] AudioClip songToPlay;
+    [SerializeField] AudioSource soundtrack;
 
     public void PlaySong(){ soundtrack.Play(); }
-    public void PlaySFX(AudioClip sound){ sfx.PlayOneShot(sound); }
+    public void PlaySFX(AudioClip sound){ soundtrack.PlayOneShot(sound); }
 
     [SerializeField] MinigameSO controller;
 
@@ -87,12 +85,42 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
 
     [SerializeField] protected Canvas canvasReference;
 
+    protected int currentLevel = 1;
+
+    public int GetCurrentLevel(){ return currentLevel; }
+    public void SetCurrentLevel(int CurrentLevel){ currentLevel = CurrentLevel; }
+
 
     ////////////////////////////////////////////////////////////////////////////////////////
 
-    void Start(){
+
+    //GUI References;
+    protected MinigameFillBarGUI fillBarGUI;
+    protected MinigameHighscoreMedalGUI highscoreMedalGUI;
+    protected MinigameLevelGUI levelGUI;
+    protected MinigameScoreGUI scoreGUI;
+    protected MinigameTimerGUI timerGUI;
+
+    //Minigame specific mechanics;
+    protected int currentMaxCombo;
+
+    public int GetMaxCombo(){ return currentMaxCombo; }
+    public void SetMaxCombo(int CurrentMaxCombo){ currentMaxCombo = CurrentMaxCombo; }
+
+
+    protected virtual void Start(){
+        CallGUIElements();        
+
         currentState = MinigameStates.MinigameStartScreen;
         PlaySong();
+    }
+
+    protected void CallGUIElements(){
+        try { fillBarGUI = MinigameFillBarGUI.Instance; } catch {}
+        try { highscoreMedalGUI = MinigameHighscoreMedalGUI.Instance; } catch {}
+        try { levelGUI = MinigameLevelGUI.Instance; } catch {}
+        try { scoreGUI = MinigameScoreGUI.Instance; } catch {}
+        try { timerGUI = MinigameTimerGUI.Instance; } catch {}
     }
 
     /*[HideInInspector] public static GameManagerType Instance;
