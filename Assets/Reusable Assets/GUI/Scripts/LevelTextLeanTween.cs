@@ -31,7 +31,7 @@ public class LevelTextLeanTween : MonoBehaviour{
         if (!start) { //Animate;
             TextMeshProUGUI text = levelObject.GetComponent<LPSOTextManager>().GetLeadingMesh();
             text.text = string.Format("Level {0}", Mathf.Clamp(levelNumber, 1, 999));
-            TextAnimations.JumpAndFade(levelObject, textScale, TextAnimations.SCALED);
+            //TextAnimations.JumpAndFade(levelObject, textScale, TextAnimations.SCALED);
             //GameManagerType.ActivateScripts(GameManagerType.GetAllComponents(game.gameObject)); //And activate needed scripts;
             start = true;
         } else { //If that's already done, prepare for destruction;

@@ -16,9 +16,9 @@ public class CountdownMinigames : MonoBehaviour{
     int indexWait = 0;
 
     private void Start() {
-        for(int i = 0; i < 4; i++) {
+        /*for(int i = 0; i < 4; i++) {
             wait[i] = TextAnimations.SCALED * i;
-        }
+        }*/
     }
 
     private void Update() {
@@ -40,15 +40,15 @@ public class CountdownMinigames : MonoBehaviour{
         } else {
             timer += Time.deltaTime;
             if (timer > 4f) MinigameType.Instance.SetIsMinigameReady(true);
-            if(timer > TextAnimations.SCALED * cooldown) {
+            /*if(timer > TextAnimations.SCALED * cooldown) {
                 Destroy(gameObject);
-            }
+            }*/
         }
     }
 
     //Countdown(); VARIABLET = time, VARIABLED = delay;
     private void Countdown(GameObject lean, int wait) {
-        float delay = TextAnimations.SCALED * wait, delayMove = delay + 1.2f;
+        /*float delay = TextAnimations.SCALED * wait, delayMove = delay + 1.2f;
 
         //Resetting the size of the text while saving its scale destination;
         LeanTween.scale(lean, Vector3.one, TextAnimations.SCALED).setEase(LeanTweenType.easeOutElastic).setDelay(delay);
@@ -58,6 +58,6 @@ public class CountdownMinigames : MonoBehaviour{
             LPSOTextManager text = lean.GetComponent<LPSOTextManager>();
             LeanTween.value(lean, 1, 0, 1f).setOnUpdate((float val) => { text.SetOpacity(val); }).setDelay(TextAnimations.OpacityDelay(delayMove));
         }
-        catch { }
+        catch { }*/
     }
 }

@@ -211,8 +211,8 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
 }
 
 public static class MinigameResourcePaths{
-    static string GreenArialText = "Text/GreenArialText";
-    static string PinkArialText = "Text/PinkArialText";
+    static string GreenArialText = "Text/P_GreenArialText";
+    static string PinkArialText = "Text/P_PinkArialText";
 
     public static string GetGreenArialTextPath(){ return GreenArialText; }
     public static string GetPinkArialTextPath(){ return PinkArialText; }

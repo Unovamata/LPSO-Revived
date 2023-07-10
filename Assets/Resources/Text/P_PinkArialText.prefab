@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1200019388295189680}
   m_Layer: 0
-  m_Name: General Pink Text
+  m_Name: P_PinkArialText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,18 +48,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pink Text
       objectReference: {fileID: 0}
-    - target: {fileID: 6240435059059554407, guid: f708942f42c4c3342b2a12176026406b, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: a4f4a2f693eb1d841b436a9e66d41bf1, type: 2}
-    - target: {fileID: 6240435059059554407, guid: f708942f42c4c3342b2a12176026406b, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -531487501981997231, guid: a4f4a2f693eb1d841b436a9e66d41bf1, type: 2}
-    - target: {fileID: 8054262075367100542, guid: f708942f42c4c3342b2a12176026406b, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 8198870393589357455, guid: 1c54be9e649c6a5449ced611389e9d3f, type: 2}
     - target: {fileID: 8250302933815463960, guid: f708942f42c4c3342b2a12176026406b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -95,18 +83,6 @@ PrefabInstance:
     - target: {fileID: 8250302933815463960, guid: f708942f42c4c3342b2a12176026406b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8250302933815463960, guid: f708942f42c4c3342b2a12176026406b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8250302933815463960, guid: f708942f42c4c3342b2a12176026406b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8250302933815463960, guid: f708942f42c4c3342b2a12176026406b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8250302933815463960, guid: f708942f42c4c3342b2a12176026406b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -156,55 +132,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8743413083587457495, guid: f708942f42c4c3342b2a12176026406b, type: 3}
-    - {fileID: 9101322403613058338, guid: f708942f42c4c3342b2a12176026406b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f708942f42c4c3342b2a12176026406b, type: 3}
---- !u!1 &1679491818965091873 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2865565946691835501, guid: f708942f42c4c3342b2a12176026406b, type: 3}
-  m_PrefabInstance: {fileID: 3497689299738103884}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2519549347424923897 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1332349891020021941, guid: f708942f42c4c3342b2a12176026406b, type: 3}
-  m_PrefabInstance: {fileID: 3497689299738103884}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5496646641337287285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2519549347424923897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd6f1096eab1c94cb23617b687021ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whiteText: {fileID: 1679491818965091873}
-  opacity: 1
 --- !u!224 &4824691299187425364 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8250302933815463960, guid: f708942f42c4c3342b2a12176026406b, type: 3}
   m_PrefabInstance: {fileID: 3497689299738103884}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6118753011101833908 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7232891584524618488, guid: f708942f42c4c3342b2a12176026406b, type: 3}
-  m_PrefabInstance: {fileID: 3497689299738103884}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3278080816538111592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6118753011101833908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd6f1096eab1c94cb23617b687021ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whiteText: {fileID: 1679491818965091873}
-  opacity: 1

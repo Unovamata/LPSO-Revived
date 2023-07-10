@@ -101,7 +101,8 @@ public class CollectApples : MonoBehaviour{
         if(minigameReference.GetCanLoadResultsScreen()){
             emptied = true;
             combo = 0;
-            TextAnimations.ResetTextParameters(minigameReference.GetComboPrefabReference(), Vector3.zero);
+
+            //TextAnimations.ResetTextParameters(minigameReference.GetComboPrefabReference(), Vector3.zero);
         }
     }
 
@@ -215,7 +216,7 @@ public class CollectApples : MonoBehaviour{
                     if(minigameReference.GetMaxCombo() < combo) minigameReference.SetMaxCombo(combo);
                 } else {
                     combo = 0;
-                    TextAnimations.ResetTextParameters(minigameReference.GetComboPrefabReference(), Vector3.zero);
+                    //TextAnimations.ResetTextParameters(minigameReference.GetComboPrefabReference(), Vector3.zero);
                 }
             } catch { }
 
@@ -248,7 +249,7 @@ public class CollectApples : MonoBehaviour{
                 extraTimePos = new Vector3(position.x, position.y - 0.25f, position.z);
 
                 float comboScale = 0.5f + ((combo * 0.01f) * 2);
-                TextAnimations.Jump(minigameReference.GetComboPrefabReference(), new Vector3(comboScale, comboScale, 0));
+                //TextAnimations.Jump(minigameReference.GetComboPrefabReference(), new Vector3(comboScale, comboScale, 0));
 
                 minigameReference.GetComboPrefabReference().GetComponent<LPSOTextManager>().GetLeadingMesh().text = string.Format("x{0} Combo", combo);
             }

@@ -19,7 +19,7 @@ public class GUITextLeanTween : MonoBehaviour{
     // Update is called once per frame
     void Update(){
         if (!animated) {
-            TextAnimations.JumpAndFade(gameObject, textScale, TextAnimations.SCALED);
+            //TextAnimations.JumpAndFade(gameObject, textScale, TextAnimations.SCALED);
             //GameManagerType.ActivateScripts(GameManagerType.GetAllComponents(GameManagerType.Instance.gameObject));
             animated = true;
         } else {
