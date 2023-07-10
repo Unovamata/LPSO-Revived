@@ -55,8 +55,8 @@ public class CountdownMinigames : MonoBehaviour{
         LeanTween.moveLocal(lean, new Vector3(0, 50, 0), TextAnimations.MOVET).setDelay(delayMove);
         //Try to locate the TextMeshPro component;
         try {
-            LPSOText text = lean.GetComponent<LPSOText>();
-            LeanTween.value(lean, 1, 0, 1f).setOnUpdate((float val) => { text.opacity = val; }).setDelay(TextAnimations.OpacityDelay(delayMove));
+            LPSOTextManager text = lean.GetComponent<LPSOTextManager>();
+            LeanTween.value(lean, 1, 0, 1f).setOnUpdate((float val) => { text.SetOpacity(val); }).setDelay(TextAnimations.OpacityDelay(delayMove));
         }
         catch { }
     }

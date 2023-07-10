@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class FruitistaFetchGameManager : MinigameType{
+public class FruitistaFetchGameManager : MinigameType {
 
     //Instance Management;
     public static FruitistaFetchGameManager Self;
@@ -80,7 +80,11 @@ public class FruitistaFetchGameManager : MinigameType{
     ////////////////////////////////////////////////////////////////////////////////////////
 
 
-    
+    void Update(){
+        if(GetCurrentState() == MinigameStates.MinigameEndScreen){
+            
+        }
+    }    
 
 
     /*[HideInInspector] public static FruitistaFetchGameManager Instance;

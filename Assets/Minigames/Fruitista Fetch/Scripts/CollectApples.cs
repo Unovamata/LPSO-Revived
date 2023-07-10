@@ -250,7 +250,7 @@ public class CollectApples : MonoBehaviour{
                 float comboScale = 0.5f + ((combo * 0.01f) * 2);
                 TextAnimations.Jump(minigameReference.GetComboPrefabReference(), new Vector3(comboScale, comboScale, 0));
 
-                minigameReference.GetComboPrefabReference().GetComponent<LPSOText>().whiteText.GetComponent<TextMeshProUGUI>().text = string.Format("x{0} Combo", combo);
+                minigameReference.GetComboPrefabReference().GetComponent<LPSOTextManager>().GetLeadingMesh().text = string.Format("x{0} Combo", combo);
             }
 
             //Removing garbage data;

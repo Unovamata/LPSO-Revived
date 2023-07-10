@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
 public interface IMinigameType{
     void Play();
     void HowToPlay();
@@ -12,10 +13,18 @@ public interface IMinigameType{
     void CallTransition();
 }
 
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+
 public interface IMinigameAudio{
     void Mute();
     void PlaySound();
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+
 
 public enum MinigameStates{
     MinigameStartScreen,
@@ -26,6 +35,10 @@ public enum MinigameStates{
     MinigameHowToPlay,
     MinigameLeave
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+
 
 public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
     MinigameStates currentState;
@@ -128,7 +141,8 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
 
     ////////////////////////////////////////////////////////////////////////////////////////
 
-    [SerializeField] GameObject startScreenReference, resultsScreenReference;
+
+    [SerializeField] GameObject startScreenReference, resultsScreenReference, GUIHeaderReference;
 
     protected virtual void Update(){
         switch(currentState){
@@ -137,12 +151,72 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
                 resultsScreenReference.SetActive(false);
             break;
 
+            case MinigameStates.MinigamePlaying:
+                startScreenReference.SetActive(false);
+                resultsScreenReference.SetActive(false);
+                GUIHeaderReference.SetActive(true);
+            break;
+
             case MinigameStates.MinigameEndScreen:
                 startScreenReference.SetActive(false);
                 resultsScreenReference.SetActive(true);
+                GUIHeaderReference.SetActive(false);
             break;
         }
     }
+
+    
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    public static void CreateGreenText(string text, Vector2 pos, float drawTime, float scale) {
+        Transform canvasReference = MinigameType.Instance.canvasReference.transform;
+        GameObject textReference = Resources.Load<GameObject>(MinigameResourcePaths.GetGreenArialTextPath());
+
+        GameObject result = Instantiate(textReference, pos, Quaternion.identity, canvasReference);
+        /*GeneralText config = result.GetComponent<GeneralText>();
+        
+        config.newText = text;
+        config.drawTime = drawTime;
+        config.textScale = new Vector3(scale, scale, scale);*/
+    }
+
+    public static void CreatePinkText(string text, Vector2 pos, float drawTime, float scale) {
+        Transform canvasReference = MinigameType.Instance.canvasReference.transform;
+        GameObject textReference = Resources.Load<GameObject>(MinigameResourcePaths.GetPinkArialTextPath());
+
+        GameObject result = Instantiate(textReference, pos, Quaternion.identity, canvasReference);
+        /*GeneralText config = result.GetComponent<GeneralText>();
+        
+        config.newText = text;
+        config.drawTime = drawTime;
+        config.textScale = new Vector3(scale, scale, scale);*/
+    }
+
+    //Number formatting with decimals;
+    public static string FormatDecimals(int score) {
+        return score.ToString("N0");
+    }
+
+    //Activates all the MonoBehaviour scripts selected. This is useful to activate scripts in the GUI at a specific time;
+    public static void ActivateScripts(MonoBehaviour[] components) {
+        foreach(MonoBehaviour component in components) component.enabled = true;
+    }
+
+    //Calls all the MonoBehaviour scripts from an object;
+    public static MonoBehaviour[] GetAllComponents(GameObject container) {
+        return container.GetComponents<MonoBehaviour>();
+    }
+}
+
+public static class MinigameResourcePaths{
+    static string GreenArialText = "Text/GreenArialText";
+    static string PinkArialText = "Text/PinkArialText";
+
+    public static string GetGreenArialTextPath(){ return GreenArialText; }
+    public static string GetPinkArialTextPath(){ return PinkArialText; }
+}
 
 
     /*[HideInInspector] public static GameManagerType Instance;
@@ -274,4 +348,3 @@ public class MinigameType : MonoBehaviour, IMinigameType, IMinigameAudio{
     public static MonoBehaviour[] GetAllComponents(GameObject container) {
         return container.GetComponents<MonoBehaviour>();
     }*/
-}
