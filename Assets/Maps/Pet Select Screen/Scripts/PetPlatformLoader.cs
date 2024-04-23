@@ -3,6 +3,11 @@ using System.Reflection;
 using TMPro;
 using UnityEngine;
 
+enum TicketType {
+    Bronze,
+    Silver,
+}
+
 public class PetPlatformLoader : PetLoader{
     public int silverTicketsAmount, bronzeTicketsAmount;
     [SerializeField] GameObject pet, silverTicket, bronzeTicket;
@@ -20,12 +25,12 @@ public class PetPlatformLoader : PetLoader{
 
         //Loading the tickets;
         if(bronzeTicketsAmount > 0) {
-            CreateTicket(slots[petPointer], bronzeTicket, bronzeTicketsAmount.ToString(), false);
+            CreateTicket(slots[petPointer], TicketType.Bronze, bronzeTicketsAmount.ToString(), false);
             petPointer++;
         }
 
         if(silverTicketsAmount > 0) {
-            CreateTicket(slots[petPointer], silverTicket, silverTicketsAmount.ToString(), true);
+            CreateTicket(slots[petPointer], TicketType.Silver, silverTicketsAmount.ToString(), true);
             petPointer++;
         }
 
@@ -36,7 +41,6 @@ public class PetPlatformLoader : PetLoader{
         //Calling the platform's positions;
         for(int i = petPointer; i < slots.Length; i++) {
             Transform platform = slots[i];
-            print(slots.Length);
             Vector3 pos = platform.position;
 
             //ownedPets.Add(new Pet { petId = UnityEngine.Random.Range(0, 2), name = (i - petPointer).ToString() });
@@ -96,13 +100,13 @@ public class PetPlatformLoader : PetLoader{
             if(tabs.currentTab == 1) {
                 //Loading the tickets;
                 if(bronzeTicketsAmount > 0) {
-                    CreateTicket(slots[currentPos], bronzeTicket, bronzeTicketsAmount.ToString(), false);
+                    CreateTicket(slots[currentPos], TicketType.Bronze, bronzeTicketsAmount.ToString(), false);
                     //SwitchPlatformSpritePremium(slots[currentPos], false);
                     currentPos++;
                 }
 
                 if(silverTicketsAmount > 0) {
-                    CreateTicket(slots[currentPos], silverTicket, silverTicketsAmount.ToString(), true);
+                    CreateTicket(slots[currentPos], TicketType.Silver, silverTicketsAmount.ToString(), true);
                     //SwitchPlatformSpritePremium(slots[currentPos], true);
                     currentPos++;
                 }
@@ -121,10 +125,21 @@ public class PetPlatformLoader : PetLoader{
 
     /////////////////////////////////////////////////////////////////////////////////
 
-    private bool CreateTicket(Transform platform, GameObject ticket, string ticketAmount, bool isPremium) {
-        GameObject instance = Instantiate(ticket, platform);
+    private bool CreateTicket(Transform platform, TicketType ticketType, string ticketAmount, bool isPremium) {
 
-        instance.name = ticket.name; //Used for data handling later on;
+        GameObject instance = new GameObject();
+
+        switch(ticketType){
+            case TicketType.Bronze:
+                instance = Instantiate(bronzeTicket, platform);
+                instance.name = "Bronze Ticket";
+            break;
+
+            case TicketType.Silver:
+                instance = Instantiate(silverTicket, platform);
+                instance.name = "Silver Ticket";
+            break;
+        }
 
         //Deleting old data;
         SwitchSpritePetPlatform platformData = platform.GetComponentInChildren<SwitchSpritePetPlatform>();

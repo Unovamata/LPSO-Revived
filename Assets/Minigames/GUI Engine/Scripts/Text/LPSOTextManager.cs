@@ -7,7 +7,8 @@ public class LPSOTextManager : MonoBehaviour{
     public enum AnimationType{
         DefaultScaling,
         BouncingScaling,
-        ResetAnimation
+        ResetAnimation,
+        NoAnimation,
     }
 
     [SerializeField] AnimationType animationState, destinationAnimationState;
@@ -48,7 +49,7 @@ public class LPSOTextManager : MonoBehaviour{
 
     RectTransform rectTransform;
 
-    bool isDefaultVector;
+    bool isAnimating;
 
     protected virtual void Start(){
         color = leadingMesh.color;
@@ -56,23 +57,10 @@ public class LPSOTextManager : MonoBehaviour{
         rectTransform = GetComponent<RectTransform>();
 
         //Positioning;
-        isDefaultVector = startPosition == Vector3.zero && endPosition == Vector3.zero;
-        if(!isDefaultVector) rectTransform.localPosition = startPosition;
+        isAnimating = startPosition == Vector3.zero && endPosition == Vector3.zero;
 
         startScale = rectTransform.localScale.x;
         startPosition = rectTransform.localPosition;
-    }
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////
-
-
-    float time = 1f, scaleTime = 0.6f, doubleTime;
-    bool triggeredAnimation, triggeredMovement;
-
-    protected void Update(){
-        //Text Formatting;
-        leadingMesh.color = new Color(color.r, color.g, color.b, opacity);
 
         foreach(TextMeshProUGUI mesh in childMeshes){
             Color meshColor = mesh.color;
@@ -82,33 +70,36 @@ public class LPSOTextManager : MonoBehaviour{
             mesh.text = leadingMesh.text;
         }
 
-        //Movement;
-        isDefaultVector = startPosition == Vector3.zero && endPosition == Vector3.zero;
-        if(!isDefaultVector){
-            if(!triggeredMovement){
-                LeanTween.moveLocal(gameObject, endPosition, time).setDelay(time * 2f);
-                triggeredMovement = true;
-            }
-        }
+        //Text Formatting;
+        leadingMesh.color = new Color(color.r, color.g, color.b, opacity);
+    }
 
-        //Animation;
 
-        doubleTime = time * 2;
+    ////////////////////////////////////////////////////////////////////////////////////////
 
+
+    float time = 1f, scaleTime = 0.6f, doubleTime;
+    bool triggeredAnimation, triggeredMovement, canAnimate = true;
+
+    protected void Update(){
         switch(animationState){
             case AnimationType.DefaultScaling:
             default:
                 rectTransform.localScale = new Vector2(startScale, startScale);
+
+                TriggerAnimation();
             break;
 
             case AnimationType.BouncingScaling:
                 try{
                     if(!triggeredAnimation){
                         LeanTween.scale(gameObject, Vector2.one * destinationScale, scaleTime).setEase(LeanTweenType.easeOutElastic);
-                        LeanTween.value(gameObject, 1, 0, 1f).setOnUpdate((float val) => { opacity = val; }).setDelay(OpacityDelayFormula(doubleTime)); 
+                        LeanTween.value(gameObject, 1, 0, 1f).setOnUpdate((float val) => { opacity = val; }).setDelay(OpacityDelayFormula(time * 2)); 
                         triggeredAnimation = true;
                     } 
                 } catch { }
+
+                TriggerAnimation();
             break;
 
             case AnimationType.ResetAnimation:
@@ -125,7 +116,22 @@ public class LPSOTextManager : MonoBehaviour{
                 
                 rectTransform.localPosition = startPosition;
                 animationState = destinationAnimationState;
+
+                TriggerAnimation();
             break;
+
+            case AnimationType.NoAnimation:
+                canAnimate = false;
+            break;
+        }
+    }
+
+    void TriggerAnimation(){
+        if(canAnimate){
+            if(!triggeredMovement){
+                LeanTween.moveLocal(gameObject, endPosition, time).setDelay(time * 2f);
+                triggeredMovement = true;
+            }
         }
     }
 
